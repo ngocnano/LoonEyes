@@ -1,0 +1,30 @@
+
+
+
+
+
+.h {
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.star1 {
+    left: 2%; 
+    bottom: 32%; 
+    width: 18px; 
+    height: 18px; 
+    animation-name: star-move, star-loop; 
+    animation-iteration-count: infinite, 
+    infinite; 
+    animation-timing-function: linear, linear; 
+    animation-duration: 227s, 12s; 
+    z-index: 90;
+}
+
+
+

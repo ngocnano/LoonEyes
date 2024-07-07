@@ -1,0 +1,20 @@
+.o {
+    transform: rotate(0deg);
+    z-index: 4;
+    flex-shrink: 0;
+    border-radius: 100%;
+    opacity: 0.4;
+    mix-blend-mode: luminosity;
+    rotate: 180deg;
+    background: radial-gradient(60.42% 60.42% at 50.02% 60.42%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.00) 69.42%, rgba(255, 255, 255, 0.08) 75.33%, rgba(255, 255, 255, 0.13) 80.42%, rgba(255, 255, 255, 0.31) 86.39%, rgba(255, 255, 255, 0.57) 92.19%, #FFF 100%);
+    box-shadow: 0px -20px 40px 0px rgba(255, 255, 255, 0.60);
+    position: relative;
+}
+
+.img {
+    visibility: hidden
+}
+
+
+
+

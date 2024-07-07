@@ -1,0 +1,236 @@
+.header {
+    display: flex;
+    justify-content: center;  
+    flex-direction:column;
+}
+
+.header-bg {
+    transform: translate(0%, -70%);
+}
+
+.background {
+    background: black;
+    /* background-image: url('/assest/image/bgLast.webp'); */
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    height: 100vh;
+    padding-bottom: 50px;
+}
+
+.background_df {
+    background: linear-gradient(90deg, #02103e -11.36%, #031F76 104.55%);
+}
+
+.background_fc {
+    background-image: url('/assest/image/bgLast.webp');
+}
+
+.star {
+    position: absolute;
+    left: 2%;
+    bottom: 50%;
+    animation-name: star-move, star-loop;
+    animation-iteration-count: infinite, infinite;
+    animation-timing-function: linear, linear;
+    animation-duration: 227s, 12s;
+    z-index: 90;
+}
+
+.star-img {
+}
+
+@keyframes star-move {
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(10);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+
+@keyframes star-loop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.wrapper {
+    width: 240px;
+  }
+
+  button {
+    margin-bottom: 12px;
+  }
+
+  .menu {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+  }
+
+  .menu_icon {
+    margin-left: 15px;
+    border-radius: 50%;
+    height: 15px !important;
+    width: 15px !important;
+    background: white;
+  }
+
+  .menu_icon_selected {
+    box-shadow: #40a9ff 0px 0px 15px 0px, #096dd9 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .menu_title:hover .menu_icon {
+    box-shadow: #40a9ff 0px 0px 15px 0px, #096dd9 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .menu_title {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  ::ng-deep .ant-menu  {
+    background:none !important;
+
+  }
+
+  ::ng-deep .ant-menu-item-selected {
+    background: none !important;
+  }
+
+  ::ng-deep .ant-menu-vertical {
+    border: none !important;
+  }
+
+  ::ng-deep .ant-menu-inline {
+    border: none !important;
+  }
+
+::ng-deep  .ant-menu-item::after {
+    border: none !important;
+}
+
+
+
+.drone {
+    position: absolute;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 70px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.drone_img {
+    transform: scale(1.5);
+    z-index: 99;
+}
+.drone_button {
+    width: 200px;
+    height: 50px;
+    border-radius: 353.31px;
+    border: 2px solid white;
+    color: white;
+    background: linear-gradient(90deg, rgba(21, 51, 156, 0.8) -11.36%, rgba(27, 47, 117, 0.096) 104.55%);
+
+}
+
+.drone_button:hover {
+    transform: scale(1.2);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content_header {
+    color: #CDCDCD;
+font-family: Inter;
+font-size: 18px;
+font-weight: 600;
+line-height: 21.6px;
+letter-spacing: 0.05em;
+text-align: center;
+}
+
+.content_title {
+    color: #F8F8F8;
+    font-family: Sora;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 67.2px;
+    text-align: center;
+}
+
+.content_main {
+    width: 50%;
+    color: #CDCDCD;
+    font-family: Sora;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: center;
+    
+}
+
+.info {
+    background-image: url('/assest/image/bg1.png');
+    padding: 56px 150px;
+}
+
+.info_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info_content_number {
+font-family: Sora;
+font-size: 56px;
+font-weight: 600;
+line-height: 84px;
+text-align: center;
+color: #3665F9;
+}
+
+.info_content_title {
+    font-family: Sora;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28.8px;
+    text-align: center;
+    color: #CDCDCD;
+
+    }
+
+
+
+
+
+
+  
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+.star {
+    left: 2%;
+    bottom: 32%;
+    width: 18px;
+    height: 18px;
+    animation-name: star-move, star-loop;
+    animation-iteration-count: infinite, infinite;
+    animation-timing-function: linear, linear;
+    animation-duration: 227s, 12s;
+    z-index: 90;
+}
+
+@keyframes star-move {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translateY(20);
+    }
+}
+
+
+@keyframes star-loop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
