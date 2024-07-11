@@ -6,12 +6,19 @@
     flex-direction:column;
 }
 
+.logo1 {
+position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+}
+
 .header-bg {
     transform: translate(0%, -70%);
 }
 
 .background {
-    background: black;
+
     /* background-image: url('/assest/image/bgLast.webp'); */
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
@@ -27,6 +34,63 @@
 
 .background_fc {
     background-image: url('/assest/image/bgLast.webp');
+}
+
+.home_img {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    overflow: clip;
+    z-index: 99;
+    background-image: url('/assest/image/bgLast.webp');
+}
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.AiEndBg-exit-done {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.bg_default {
+    opacity: .2;
+}
+
+.bg_choose {
+    opacity: .7;
+}
+
+
+.bg {
+    /* this is needed or the background will be offset by a few pixels at the top */
+    background: black;
+    overflow: hidden;
+  }
+
+
+.home_img_child {
+    width: 1549px;
+    height: 1461px;
+    top: -761px;
+    z-index: 4;
+  flex-shrink: 0;
+  border-radius: 100%;
+  opacity: 0.4;
+  mix-blend-mode: luminosity;
+  border: 1px solid #FFF;
+  rotate: 180deg;
+  background: radial-gradient(60.42% 60.42% at 50.02% 60.42%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.00) 69.42%, rgba(255, 255, 255, 0.08) 75.33%, rgba(255, 255, 255, 0.13) 80.42%, rgba(255, 255, 255, 0.31) 86.39%, rgba(255, 255, 255, 0.57) 92.19%, #FFF 100%);
+  box-shadow: 0px -20px 40px 0px rgba(255, 255, 255, 0.60);
+  position: absolute;
+  z-index: 99;
 }
 
 .star {
@@ -45,13 +109,13 @@
 
 @keyframes star-move {
     0% {
-        transform: translate(0);
+        transform: translate(0px, 10px);
     }
     50% {
-        transform: translate(10);
+        transform: translate(0px, 20px);
     }
     100% {
-        transform: translateY(20px);
+        transform: translateY(0px, 30px);
     }
 }
 
@@ -72,8 +136,9 @@
     width: 240px;
   }
 
-  button {
+  .button {
     margin-bottom: 12px;
+    z-index: 100;
   }
 
   .menu {
@@ -195,6 +260,62 @@ text-align: center;
     text-align: center;
     
 }
+
+@media (min-width: 640px) {
+    .ai-sm\:bottom-\[473px\] {
+      bottom: 473px;
+    }
+  }
+  @media (min-width: 440px) {
+    .ai-xs\:w-\[1549px\] {
+      width: 1549px;
+    }
+  }
+  @media (min-width: 440px) {
+    .ai-xs\:h-\[1461px\] {
+      height: 1461px;
+    }
+  }
+  @media (min-width: 360px) {
+    .ai-sssm\:bottom-\[738px\] {
+      bottom: 738px;
+    }
+  }
+  .border, .border-\[1px\] {
+    border-width: 1px;
+  }
+  .w-\[520px\] {
+    width: 520px;
+  }
+  .h-\[520px\] {
+    height: 520px;
+  }
+  .bottom-\[989px\] {
+    bottom: 989px;
+  }
+  .absolute {
+    position: absolute;
+  }
+  @media (min-width: 640px) {
+    .ai-sm\:bottom-\[473px\] {
+      bottom: 473px;
+    }
+  }
+  @media (min-width: 440px) {
+    .ai-xs\:w-\[1549px\] {
+      width: 1549px;
+    }
+  }
+  @media (min-width: 440px) {
+    .ai-xs\:h-\[1461px\] {
+      height: 1461px;
+    }
+  }
+  @media (min-width: 360px) {
+    .ai-sssm\:bottom-\[738px\] {
+      bottom: 738px;
+    }
+  }
 
 
 

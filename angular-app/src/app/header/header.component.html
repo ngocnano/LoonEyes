@@ -1,4 +1,4 @@
-<div class="background" [class]="focusB ? 'background background_fc' : 'background background_df'">
+<!-- <div class="background" [class]="focusB ? 'background background_fc' : 'background background_df'">
     <div class="logo">
         <img src="/assest/image/logo.png">
     </div>
@@ -45,12 +45,76 @@
     @for (item of star; track item) {
     <img class="star-img  star" src="/assest/image/bg-star.png" [style]="item" >
     }
+</div> -->
+
+
+<div style="height: 100vh" class="bg">
+    <div
+    class="AiEndBg-exit-done"
+    [class]="focusB ? 'AiEndBg-exit-done bg_choose' : 'AiEndBg-exit-done bg_default'"
+    style="z-index: 2"
+  >
+    <img
+      class="w100"
+      src="/assest/image/bgLast.webp"
+      alt="ai"
+      style="object-fit: cover"
+    />
+  </div>
+  <div class="flex full">
+    <div class="home_img flex_row">
+      <div class="home_img_child"></div>
+    </div>
+
+  </div>
+  <div>
+    @for (item of star; track item) {
+    <img class="star-img  star" src="/assest/image/bg-star.png" [style]="item" >
+    }
+  </div>
+
+  <div class="logo1">
+    <img src="/assest/image/logo.png">
 </div>
 
+  <div class="menu" (mouseover)="focusTitle(false)" (mouseout)="focusTitle(true)">
+    
+    <div class="wrapper">
+        <img src="/assest/image/menu.png">
+        <ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed" [nzTheme]="'dark'">
+            @for (item of menu; track item.title) {
+            <li (click)="changePage(item)"
+                nz-menu-item
+                [nzSelected]="item.selected"
+              >
+              <div class="menu_title">
+                <div>
+                    <div class="menu_icon" [class]="item.selected ? 'menu_icon menu_icon_selected' : 'menu_icon'"></div>
+                </div>
+                <div>{{item.title}}</div>
+              </div>
+              </li>
+            }
+        </ul>
+      </div>
+</div>
 
+<div class="drone">
+    <div class="content">
+        <div class="content_header">DRONE LIGHT SHOW</div>
+        <div class="content_title">Cảm xúc hùng vĩ sẽ không phai đi</div>
+        <div class="content_main">Dignissim diam orci condimentum et. Non in nunc aenean massa amet enim sed sit. Id quam mattis mus malesuada sit. Volutpat sociis tempor quis mauris id. Hac mattis dui magna.</div>
+    </div>
+    <div class="button" (mouseover)="focusBtn(true)" (mouseout)="focusBtn(false)">
+        <button class="drone_button">Bắt đầu dự án <span nz-icon nzType="arrow-right" nzTheme="outline"></span></button>
+      </div>
+    <img src="/assest/image/1.gif" alt="this slowpoke moves"  width="250" class="drone_img">
+  </div>
+
+
+</div>
 @defer (on viewport) {
     <app-show-number></app-show-number>
 } @placeholder {
     <p></p>
 }
-
