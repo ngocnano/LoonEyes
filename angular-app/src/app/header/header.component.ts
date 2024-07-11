@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { BackgroudComponent } from './backgroud/backgroud.component';
-import { StarComponent } from './star/star.component';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { ShowNumberComponent } from './show-number/show-number.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     BackgroudComponent,
-    StarComponent,
     NzMenuModule,
     NzToolTipModule,
     NzIconModule,
     NzGridModule,
     NzLayoutModule,
+    ShowNumberComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
@@ -37,29 +37,12 @@ export class HeaderComponent implements OnInit {
 
   isCollapsed = true;
 
-  viewInfo = [{
-    number: '100M',
-    title: 'Lượt xem'
-  },
-  {
-    number: '4.75+',
-    title: 'Đánh giá cao'
-  },
-  {
-    number: '700',
-    title: 'Dự án hoàn thiện'
-  },
-  {
-    number: '200M',
-    title: 'Lượt theo dõi'
-  }
-]
 
   focusBtn(arg0: boolean) {
     this.focusB = arg0;
   }
   ngOnInit(): void {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
       this.star.push(this.genStyle());
     }
   }

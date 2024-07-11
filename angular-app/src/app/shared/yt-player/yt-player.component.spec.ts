@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StarComponent } from './star.component';
+import { YtPlayerComponent } from './yt-player.component';
 
-describe('StarComponent', () => {
-  let component: StarComponent;
-  let fixture: ComponentFixture<StarComponent>;
+describe('YtPlayerComponent', () => {
+  let component: YtPlayerComponent;
+  let fixture: ComponentFixture<YtPlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StarComponent]
+      imports: [YtPlayerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StarComponent);
+    fixture = TestBed.createComponent(YtPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

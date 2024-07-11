@@ -47,21 +47,10 @@
     }
 </div>
 
-<div class="info" nz-row>
-  <div nz-col nzLg="6" class="info_content">
-    <span class="info_content_number">{{viewInfo[0].number}}</span>
-    <span class="info_content_title">{{viewInfo[0].title}}</span>
-  </div>
-  <div nz-col nzLg="6" class="info_content">
-    <span class="info_content_number">{{viewInfo[1].number}}</span>
-    <span class="info_content_title">{{viewInfo[1].title}}</span>
-  </div>
-  <div nz-col nzLg="6" class="info_content">
-    <span class="info_content_number">{{viewInfo[2].number}}</span>
-    <span class="info_content_title">{{viewInfo[2].title}}</span>
-  </div>
-  <div nz-col nzLg="6" class="info_content">
-    <span class="info_content_number">{{viewInfo[3].number}}</span>
-    <span class="info_content_title">{{viewInfo[3].title}}</span>
-  </div>
-</div>
+
+@defer (on viewport) {
+    <app-show-number></app-show-number>
+} @placeholder {
+    <p></p>
+}
+
