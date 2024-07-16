@@ -1,3 +1,15 @@
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_video {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
 .main {
     background: black;
 }
@@ -45,6 +57,7 @@
     }
 }
 
+
 .about_me {}
 
 .about_me_header {
@@ -52,6 +65,7 @@
     flex-direction: column;
     row-gap: 20px;
     padding-right: 10%;
+    padding-bottom: 12px;
 }
 
 .about_me_header1 {
@@ -66,7 +80,6 @@
 }
 
 .about_me_header2 {
-    font-family: Sora;
     font-size: 56px;
     font-weight: 600;
     line-height: 84px;
@@ -78,7 +91,6 @@
 
 
 .about_me_header3 {
-    font-family: Sora;
     font-size: 18px;
     font-weight: 400;
     line-height: 28.8px;
@@ -103,7 +115,6 @@
 }
 
 .about_me_content_text {
-    font-family: Sora;
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
@@ -195,3 +206,35 @@
 .img img {
     padding-right: 20px;
 }
+
+.header {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: animate 2s linear forwards;
+  }
+
+  @keyframes animate {
+    0% { 
+      width: 0px;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+
+  .transform {
+    animation-name: transform;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-direction: alternate;
+  }
+  
+  @keyframes transform {
+    from {
+      transform:scale(.1);
+    }
+    to {
+      transform:scale(1);
+    }
+  }

@@ -1,0 +1,9 @@
+.yt {
+    display: flex;
+    justify-content: center;
+}
+
+
+::ng-deep iframe {
+    width: 100%;
+}

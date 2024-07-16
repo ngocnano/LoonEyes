@@ -2,3 +2,7 @@
   background-color: black;
 
 }
+
+.app {
+  overflow: hidden;
+}

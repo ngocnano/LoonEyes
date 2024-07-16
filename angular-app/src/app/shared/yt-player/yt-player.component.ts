@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { YoutubePlayerComponent } from 'ngx-youtube-player';
 
 @Component({
@@ -20,17 +20,15 @@ export class YtPlayerComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
     this.onResize();
-    window.addEventListener('resize', this.onResize.bind(this));
+    // window.addEventListener('resize', this.onResize.bind(this));
   }
 
   onResize(): void {
         // you can remove this line if you want to have wider video player than 1200px
-    this.videoWidth = Math.min(
-      this.youTubePlayer.nativeElement.clientWidth,
-      1200
-    );
+        // console.log( this.elementRef.nativeElement.offsetWidth)
+    this.videoWidth = 720;
         // so you keep the ratio
-    this.videoHeight = this.videoWidth * 1;
+    this.videoHeight = this.videoWidth * 0.7;
     this.changeDetectorRef.detectChanges();
   }
 }

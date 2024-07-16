@@ -1,6 +1,5 @@
 
 .icon_text {
-font-family: Sora;
 font-size: 32px;
 font-weight: 600;
 line-height: 44.8px;
@@ -9,12 +8,13 @@ color: #3665F9;
 }
 
 .text_content {
-font-family: Sora;
+    padding-top: 20px;
 font-size: 18px;
 font-weight: 400;
 line-height: 28.8px;
 text-align: left;
 color: #CDCDCD;
+width: 424px
 }
 
 .content {

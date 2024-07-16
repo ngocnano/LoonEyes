@@ -200,7 +200,7 @@ position: absolute;
     justify-content: center;
     align-items: center;
     row-gap: 70px;
-    bottom: 20px;
+    top: 300px;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -208,7 +208,7 @@ position: absolute;
 }
 
 .drone_img {
-    transform: scale(1.5);
+    transform: scale(2);
     z-index: 99;
 }
 .drone_button {
@@ -243,7 +243,6 @@ text-align: center;
 
 .content_title {
     color: #F8F8F8;
-    font-family: Sora;
     font-size: 48px;
     font-weight: 600;
     line-height: 67.2px;
@@ -253,7 +252,7 @@ text-align: center;
 .content_main {
     width: 50%;
     color: #CDCDCD;
-    font-family: Sora;
+
     font-size: 16px;
     font-weight: 400;
     line-height: 25.6px;

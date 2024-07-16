@@ -7,57 +7,68 @@ export class ProjectService {
         {
             id: 2,
             type: 2,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p1.jpg'
         },
         {
             id: 3,
             type: 2,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p2.jpg'
         },
         {
             id: 2,
             type: 1,
-            name: 'Test'
+            name: 'Test',
+            url: '/assest/image/p3.jpg'
         },
         {
             id: 3,
             type: 1,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p4.jpg'
         },
         {
             id: 4,
             type: 3,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p4.jpg'
         },
         {
             id: 4,
             type: 3,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p3.jpg'
         },
         {
             id: 4,
             type: 4,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p2.jpg'
         },
         {
             id: 4,
             type: 4,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p1.jpg'
         },
         {
             id: 4,
             type: 4,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p2.jpg'
         },
         {
             id: 4,
             type: 1,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p3.jpg'
         },
         {
             id: 4,
             type: 1,
-            name: 'drone light hồ tây'
+            name: 'drone light hồ tây',
+            url: '/assest/image/p4.jpg'
         }
     ]
 
