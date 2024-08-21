@@ -1,0 +1,31 @@
+<div class="main">
+    <div nz-row class="title_text" [nzGutter]="[60,60]">
+        <div nz-col nzLg="16">
+            <div class="title">Dịch vụ</div>
+            <div class="title_main">Loon Eyes Cung cấp</div>
+        </div>
+        <div nz-col nzLg="8" class="title_btn w100" nz-flex [nzJustify]="'flex-end'">
+            <button class="btn" (click)="change()">Xem thêm</button>
+        </div>
+    </div>
+
+    @defer (on viewport) {
+        <div nz-row [nzGutter]="[60,60]" class="content">
+
+            @for (item of service; track $index) {
+                <div nz-col nzLg="12" nzMd="12" nzXs="24" nzSm="24" (click)="changeToProject(item.id)">
+                    <div class="icon_content c1" nz-flex [nzAlign]="'center'" [nzGap]="'15px'">
+                        <img [src]="item.icon">
+                        <div class="icon_text">{{item.title}}</div>
+                    </div>
+                    <div class="text_content k1">
+                        {{item.des}}
+                    </div>
+                </div>
+            }
+        </div>
+    } @placeholder {
+        <p></p>
+    }
+
+</div>

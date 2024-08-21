@@ -1,0 +1,57 @@
+<div>
+    <nz-layout class="main">
+        <div nz-row>
+           <div     nz-col nzLg="8" (click)="changeTo()">
+               <img src="/assest/image/logo.png">
+             </div>
+       
+           <div nz-col nzLg="16" class="w100" nz-flex [nzJustify]="'flex-end'" (click)="openMenu()">
+            <img src="/assest/image/menu.png">
+           </div>  
+        </div>
+           <nz-layout class="main_project header">
+               <nz-header nz-flex [nzJustify]="'space-between'">
+                   <div class="title">Dự án</div>
+                   <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+                    @for (item of listType; track $index) {
+                        <li nz-menu-item [nzSelected]="item.id === typeId" (click)="changeType(item)">{{item.name}}</li>
+                    }
+                   </ul>
+                 </nz-header>
+             <nz-layout class="main_project header">
+               <nz-content>
+                <div nz-row [nzGutter]="[60,60]" class="content">
+                    @for (item of listProjectTmp; track item) {
+                        <div nz-col nzLg="12" class="all_project v" (click)="changeToProjectDetail(item.id)">
+                            <div class="w100 h100 zoom-img">
+                                <img [src]="item.url" class="img">
+                                <!-- <div class="img" [style.background-image]="'url(' + item.url + ')'"> -->
+                            <!-- </div> -->
+                            </div>
+                            <div class="title">{{item.name}}</div>
+                        </div>
+                    }
+                    
+                </div>
+                <div nz-row class="tag">
+                    <div nz-col nzSpan="12"></div>
+                    <div nz-col nzSpan="12" nz-flex [nzJustify]="'center'" style="width: 100%;">
+                        <div nz-flex nzGap="12px">
+                            <div>Tag: </div>
+                            @for (item of initArr(paging.numPage); track item) {
+                                <nz-tag nzMode="checkable" [nzChecked]="paging.page === item - 1" (nzCheckedChange)="changePage(item - 1)">Tag {{item}}</nz-tag>
+                            }
+                        </div>
+                    </div>
+                </div>
+               </nz-content>
+             </nz-layout>
+           </nz-layout>
+         </nz-layout>
+</div>
+
+@defer (on viewport) {
+    <app-start id="app-start" class="scrollable"></app-start>
+    } @placeholder {
+    <p></p> }
+

@@ -1,5 +1,27 @@
 
-<div class="app">
+<div class="app bg">
     <router-outlet></router-outlet>
+    <app-footer id="app-footer"></app-footer>
 </div>
 
+<nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      [nzWidth]="'100%'"
+      [nzHeight]="'100%'"
+      nzPlacement="right"
+      [nzTitle]="tplTitle"
+      (nzOnClose)="close()"
+    >
+      <ng-container *nzDrawerContent>
+        <app-menu></app-menu>
+      </ng-container>
+    </nz-drawer>
+
+    <ng-template #tplTitle>
+    <div class="menu_title">
+      <img class='img_menu_1' src='/assest/image/logo.png'>
+      <span class="icon_menu" nz-icon nzType="close" nzTheme="outline" (click)="close()"></span>
+    </div>  
+     
+    </ng-template>

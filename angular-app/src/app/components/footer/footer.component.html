@@ -1,0 +1,62 @@
+<div class="container">
+  <!-- <div class="register" nz-row [nzGutter]="[30, 30]">
+    <div nz-col nzSpan="12">
+      <div class="title">Đăng ký nhận thông tin mới nhất</div>
+      <div class="text">
+        Aliquet dignissim erat habitasse aliquet tincidunt phasellus ultrices.
+        Aenean sed elit mattis sagittis id velit sed scelerisque
+      </div>
+    </div>
+    <div class="input" nz-col nzSpan="8">
+      <input type="text" class="input_text" placeholder="Nhập email của bạn" />
+    </div>
+    <div class="button" nz-col nzSpan="4">
+      <button class="drone_button">Đăng ký</button>
+    </div>
+  </div> -->
+  <div class="contact" nz-row>
+    <div class="icon" nz-col nzLg="12">
+      <div class="icon_main">
+        <img src="/assest/image/logo.png" />
+      </div>
+      <div class="icon_ss">
+        <img src="/assest/icon/fb.png" />
+        <img src="/assest/icon/x.png" />
+        <img src="/assest/icon/ig.png" />
+        <img src="/assest/icon/in.png" />
+      </div>
+    </div>
+    <div class="navigator" nz-col nzLg="6">
+      <div class="ct_title">NAVIGATOR</div>
+      @for (panel of menu; track panel) {
+      <div class="ct" (click)="changeRouter(panel.url)">
+        <span nz-icon nzType="right" nzTheme="outline"></span>
+        <a class="ct_text">{{ panel.title }}</a>
+      </div>
+
+      }
+    </div>
+    <div class="contact_value" nz-col nzLg="6">
+      <div class="ct_title">CONTACT</div>
+
+      @for (panel of ct; track panel) {
+      <div class="ct_content">
+        <div>
+            <img [src]="'/assest/icon/' + panel.type + '.png'" />
+        </div>
+        <div class="ct_value_main">
+          @for (item of panel.value; track item) {
+          <div class="ct_value">
+            {{ item }}
+          </div>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="footer">
+    <div class="ft_text">Copyright © 2024 Looneyes</div>
+    <div class="ft_text">Design By  Looneyes</div>
+  </div>
+</div>

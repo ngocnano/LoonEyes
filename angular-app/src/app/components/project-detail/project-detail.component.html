@@ -1,0 +1,132 @@
+<div class="header">
+    <nz-affix [nzOffsetTop]="10">
+        <div class="aff_c w100">
+            <div class="aff">
+                <div (click)="changeTo()">
+                  <img src="/assest/image/logo.png" />
+                </div>
+          
+                <div class="menu" (click)="openMenu()">
+                  <div class="wrapper">
+                    <img src="/assest/image/menu.png" />
+                  </div>
+                </div>
+              </div>
+        </div>
+    
+      </nz-affix>
+
+      <div class="w100 h100 title">
+        <div class="text">{{project.name}}</div>
+      </div>
+
+
+
+</div>
+
+<div nz-row class="container_des">
+ <div nz-col nzLg="4" nzMd="12" nzSm="24" nzXs="24">
+    <div class="container_text">
+        <div class="container_text__title">TÊN DỰ ÁN</div>
+        <div class="container_text__text">{{project.name}}</div>
+    </div>
+ </div>
+ <div nz-col nzLg="4" nzMd="12" nzSm="24" nzXs="24">
+    <div class="container_text">
+        <div class="container_text__title">KHÁCH HÀNG</div>
+        <div class="container_text__text">{{project.customer}}</div>
+    </div>
+ </div>
+ <div nz-col nzLg="4" nzMd="12" nzSm="24" nzXs="24">
+    <div class="container_text">
+        <div class="container_text__title">THỜI GIAN</div>
+        <div class="container_text__text">{{project.time}}</div>
+    </div>
+ </div>
+ <div nz-col nzLg="12" nzMd="12" nzSm="24" nzXs="24">
+    <div class="container_text">
+        <!-- <div class="container_text__title">THỜI GIAN</div> -->
+        <div class="container_text__text">{{project.des}}</div>
+    </div>
+ </div>
+
+</div>
+
+<div nz-row [nzGutter]="[50, 50]" class="container_main">
+    <div nz-col nzSpan="24">    
+        <app-yt-player [videoID]="project.videoId"></app-yt-player>
+    </div>
+
+    @for (item of project.projectDetails; track $index) {
+        <div nz-col [nzLg]="item.nzLg" [nzMd]="item.nzLg" [nzSm]="item.nzSm" [nzXs]="item.nzXs">
+            @if (item.detailType === 'img') {
+                <div class="pj_img">
+                    <img class="w100 h100" [src]="item.url">
+                </div>
+            } @else if (item.detailType === 'title') {
+                <div class="container_text w100 h100 flex_title">
+                    <div class="container_text__title_sub">{{item.url}}</div>
+                </div>
+            } @else {
+                <div class="container_text">
+                    <div class="container_text__text">{{item.url}}</div>
+                </div>
+            }
+        </div>
+    }
+
+    <!-- <div nz-col nzLg="24">
+        <nz-carousel [nzDotPosition]="dotPosition" (nzAfterChange)="changePage($event)" #cs class="content-card">
+          @for (index of array; track index) {
+            <div nz-carousel-content>
+              <div nz-row [nzGutter]="[32, 32]" > 
+              @for (item of showItem[index]; track item) {
+  
+                  <div nz-col [nzSpan]="nzSpan" class="card">
+                    <img [src]="item.url" class="w100 h100">
+                  </div>
+              }
+            </div>
+            </div>
+          }
+        </nz-carousel>
+  
+    </div> -->
+
+
+</div>
+
+<div nz-row [nzGutter]="[32, 50]" class="main content-card title_text">
+    <div nz-col nzLg="16">
+      <div class="content">
+          <div class="title_main">Dự án khác</div>
+      </div>
+    </div>
+    <div nz-col nzLg="8" nz-flex  [nzJustify]="'flex-end'" [nzAlign]="'flex-end'" class="w100">
+      <div class="100w">
+        <img src="/assest/image/arr_right.png" (click)="goToNextPage()">
+      </div>
+    
+    </div>
+    <div nz-col nzLg="24">
+        <nz-carousel [nzDotPosition]="dotPosition" (nzAfterChange)="changePage($event)" #cs class="content-card">
+          @for (index of array; track index) {
+            <div nz-carousel-content>
+              <div nz-row [nzGutter]="[32, 32]" > 
+              @for (item of showItem[index]; track item) {
+  
+                  <div nz-col [nzSpan]="nzSpan" class="card" (click)="changeToProjectDetail(item.id)">
+                    <div>
+                        <img [src]="item.url" class="img_inner" (click)="changeToProjectDetail(item.id)">
+                    </div>
+                    <div class="container_text__title_sub">{{item.name}}</div>
+                  </div>
+              }
+            </div>
+            </div>
+          }
+        </nz-carousel>
+  
+    </div>
+  </div>
+  

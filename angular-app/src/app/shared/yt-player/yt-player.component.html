@@ -1,3 +1,9 @@
 <div #youTubePlayer>
-    <youtube-player [videoId]="videoID" [height]="videoHeight" [width]="videoWidth"></youtube-player>
+    <youtube-player [videoId]="videoID" [height]="videoHeight" [width]="videoWidth"
+    #myDiv
+    id="myDiv"
+    (ready)="savePlayer($event)"
+    (change)="onStateChange($event)"
+    [playerVars]="playerVars"
+    ></youtube-player>
 </div> 

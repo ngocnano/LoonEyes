@@ -1,0 +1,136 @@
+.container {
+    background: linear-gradient(0deg, rgb(0 0 0 / 76%), rgb(0 0 0 / 77%)), radial-gradient(100% 100% at 50% 0%, rgb(92 143 228 / 50%) 0.27%, rgb(3 15 35) 100%);
+    border-radius: 50px 50px 0px 0px;
+    padding: 56px 5%;
+    border-top: 1px solid;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+    /* Firefox */
+    padding-left: 20px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input[type=text] {
+    color: white;
+    padding-left: 20px;
+}
+
+.input_text {
+    width: 100%;
+    border-radius: 20px;
+    height: 50px;
+    border: none;
+    background: rgba(163, 163, 163, 0.5);
+}
+
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33.6px;
+    text-align: left;
+    color: #3665F9;
+
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: left;
+    color: #CDCDCD;
+
+}
+
+.register {
+    padding-bottom: 30px;
+    display: flex;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+    border-image-source: linear-gradient(90deg, rgba(47, 70, 106, 0.1) -2.94%, #2F466A 49.17%, rgba(47, 70, 106, 0.1) 102.37%);
+
+
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.icon_ss {
+    display: flex;
+    column-gap: 20px;
+    padding-left: 30px;
+}
+
+.contact {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+    border-image-source: linear-gradient(90deg, rgba(47, 70, 106, 0.1) -2.94%, #2F466A 49.17%, rgba(47, 70, 106, 0.1) 102.37%);
+}
+
+.ct {
+    display: flex;
+    column-gap: 5px;
+    row-gap: 10px;
+    padding-bottom: 20px;
+}
+
+.ct_text {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.4px;
+    text-align: left;
+    color: white;
+
+}
+
+.ct_title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33.6px;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    color: white;
+}
+
+.ct_content {
+    display: flex;
+}
+
+.ct_value_main {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+
+}
+
+.ct_value {
+    padding-bottom: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.ft_text {
+font-size: 16px;
+font-weight: 600;
+line-height: 19.2px;
+text-align: left;
+color: #CDCDCD;
+
+}

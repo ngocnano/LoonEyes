@@ -1,0 +1,98 @@
+<div class="h100">
+  <nz-layout class="container">
+    <nz-layout>
+      <nz-content class="content_menu menu_main">
+        <nz-list nzBordered>
+            @for (item of menu; track item) {
+              <nz-list-item (click)="changePage(item)">
+                <span nz-typography [class]="curUrl == item.url ? 'title_menu_check w100' : 'title_menu w100'">{{ item.title }}</span>
+              </nz-list-item>
+            }
+          </nz-list>
+      </nz-content>
+      <nz-footer class="content_menu menu_main">
+        <div class="icon">
+            <span nz-icon nzType="facebook" nzTheme="outline"></span>
+            <span nz-icon nzType="twitter" nzTheme="outline"></span>
+            <span nz-icon nzType="instagram" nzTheme="outline"></span>
+            <span nz-icon nzType="linkedin" nzTheme="outline"></span>
+        </div>
+
+      </nz-footer>
+    </nz-layout>
+    <nz-sider class="content_menu ">
+        <div class="link h100">
+            <div  class="radio">
+                <!-- <nz-radio-group [(ngModel)]="radioValue" class="radio">
+                    @for (item of menu; track item) {
+                        <label nz-radio [nzValue]="$index"></label>
+                    }
+                  </nz-radio-group> -->
+                  @for (item of menu; track item) {
+                    <div class="menu_icon" [class]="curUrl == item.url ? 'menu_icon menu_icon_selected' : 'menu_icon'"></div>
+                }
+            </div>
+    
+            <div class="radio">
+                <span class="link_text">GIỚI THIỆU</span>
+                <span class="link_text">TEAM</span>
+                <span class="link_text">TUYỂN DỤNG</span>
+                <span class="link_text">LIÊN HỆ</span>
+            </div>
+        </div>
+
+    </nz-sider>
+
+  </nz-layout>
+  <div class="main_logo">
+    <div class="logos">
+      <div class="logos-slide">
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+      </div>
+
+      <div class="logos-slide">
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+        <div class="img">
+          <img src="assest/image/ab1.png" />
+          <img src="assest/image/ab2.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

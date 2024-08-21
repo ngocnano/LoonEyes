@@ -1,0 +1,160 @@
+.it_title {
+font-size: 18px;
+font-weight: 600;
+line-height: 21.6px;
+letter-spacing: 0.05em;
+text-align: left;
+color: #CDCDCD;
+
+}
+
+.it_text {
+font-size: 40px;
+font-weight: 600;
+line-height: 56px;
+text-align: left;
+color: #3665F9;
+padding-bottom: 30px;
+}
+
+.count_tt {
+font-size: 128px;
+font-weight: 600;
+line-height: 179.2px;
+text-align: left;
+color: #CDCDCD;
+padding-bottom: 150px;
+}
+
+.icon_text {
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33.6px;
+    text-align: left;
+    color: #3665F9;
+
+
+}
+
+.text_content {
+font-size: 18px;
+font-weight: 400;
+line-height: 28.8px;
+text-align: left;
+color: #CDCDCD;
+
+}
+
+.card {
+    padding: 20px;
+   
+    border-left: 1px solid;
+}
+.main_content {
+    padding-top: 50px;
+}
+
+.main_logo {
+    border: 1px solid #c9cacb
+}
+
+
+
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.logos {
+    overflow: hidden;
+    background: black;
+    white-space: nowrap;
+    position: relative;
+}
+
+.logos:before,
+.logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
+}
+
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+}
+
+.logos:hover .logos-slide {
+    animation-play-state: paused;
+}
+
+.logos-slide {
+    display: inline-block;
+    animation: 10s slide infinite linear;
+}
+
+.logos-slide .img {
+    height: 50px;
+    margin: 0 40px;
+}
+
+.img {
+    display: inline-block;
+}
+
+.img img {
+    padding-right: 20px;
+}
+
+.header {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: animate 2s linear forwards;
+  }
+
+  @keyframes animate {
+    0% { 
+      width: 0px;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+
+  .transform {
+    animation-name: transform;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-direction: alternate;
+  }
+  
+  @keyframes transform {
+    from {
+      transform:scale(.1);
+    }
+    to {
+      transform:scale(1);
+    }
+  }
+
+  .aff {
+
+    display: flex;
+    justify-content: space-between;
+  }

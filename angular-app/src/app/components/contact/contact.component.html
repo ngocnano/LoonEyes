@@ -1,0 +1,141 @@
+<div class="main">
+  <div nz-row>
+    <div nz-col nzLg="8" (click)="changeTo()">
+      <img src="/assest/image/logo.png" />
+    </div>
+
+    <div
+      nz-col
+      nzLg="16"
+      class="w100"
+      nz-flex
+      [nzJustify]="'flex-end'"
+      (click)="openMenu()"
+    >
+      <img src="/assest/image/menu.png" />
+    </div>
+  </div>
+</div>
+
+<div class="content" nz-row [nzGutter]="[60, 60]">
+  <div class="form" nz-col nzLg="12">
+    <div class="header">
+      <div class="header__title">ĐĂNG KÝ TƯ VẤN BÁO GIÁ</div>
+      <div class="header__text">
+        Liên hệ ngay với chúng tôi để thực hiện dự án của bạn !
+      </div>
+    </div>
+    <form nz-form [formGroup]="login_form">
+      <nz-form-item>
+        <nz-form-label nzFor="checkPassword">Họ tên</nz-form-label>
+        <nz-form-control [nzErrorTip]="errorTpl">
+          <input
+            nz-input
+            type="text"
+            formControlName="fullName"
+            id="checkPassword"
+          />
+          <ng-template #errorTpl let-control>
+            @if (control.errors?.['required']) { Please confirm your password! }
+            @if (control.errors?.['confirm']) { Two passwords that you enter is
+            inconsistent! }
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzFor="checkPassword">Email</nz-form-label>
+        <nz-form-control>
+          <input nz-input type="text" formControlName="email" />
+          <ng-template #errorTpl let-control>
+            <div>{{ control.errors }}</div>
+            @if (control.errors?.['required']) { Please confirm your password! }
+            @if (control.errors?.['confirm']) { Two passwords that you enter is
+            inconsistent! } @if (control.errors?.['pattern']) { Sai định dạng }
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzFor="checkPassword">Số điện thoại</nz-form-label>
+        <nz-form-control [nzErrorTip]="errorTpl">
+          <input nz-input type="text" formControlName="phoneNumber" />
+          <ng-template #errorTpl let-control>
+            @if (control.errors?.['required']) { Please confirm your password! }
+            @if (control.errors?.['confirm']) { Two passwords that you enter is
+            inconsistent! }
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzFor="checkPassword">Địa chỉ</nz-form-label>
+        <nz-form-control [nzErrorTip]="errorTpl">
+          <input nz-input type="text" formControlName="address" />
+          <ng-template #errorTpl let-control>
+            @if (control.errors?.['required']) { Please confirm your password! }
+            @if (control.errors?.['confirm']) { Two passwords that you enter is
+            inconsistent! }
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzFor="checkPassword">Thông tin dự án</nz-form-label>
+        <nz-form-control [nzErrorTip]="errorTpl">
+          <input nz-input type="text" formControlName="projectInfo" />
+          <ng-template #errorTpl let-control>
+            @if (control.errors?.['required']) { Please confirm your password! }
+            @if (control.errors?.['confirm']) { Two passwords that you enter is
+            inconsistent! }
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <div>
+      <nz-upload
+        nzType="drag"
+        [nzMultiple]="true"
+        nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        (nzChange)="handleChange($event)"
+      >
+        <p class="ant-upload-drag-icon">
+          <span nz-icon nzType="inbox"></span>
+        </p>
+      </nz-upload>
+
+      <div
+        nz-col
+        nzLg="8"
+        class="title_btn w100"
+        nz-flex
+        [nzJustify]="'flex-end'"
+      >
+        <button class="btn" (click)="save()">Đăng ký</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="map" nz-col nzLg="12">
+    <div *ngIf="apiLoaded | async">
+      <google-map [options]="options" (mapClick)="addMarker($event)">
+        <map-marker
+          *ngFor="let markerPosition of markerPositions"
+          [position]="markerPosition"
+        >
+        </map-marker>
+      </google-map>
+    </div>
+
+    <div class="map_f">
+      <div class="map_f1">
+        <div class="map_f__title"><span nz-icon nzType="phone" nzTheme="outline"></span> PHONE</div>
+        <div class="map_f__text">0978345338</div>
+      </div>
+      <div class="map_f1">
+        <div class="map_f__title">FAX</div>
+        <div class="map_f__text">03 5432 1234</div>
+      </div>
+      <div class="map_f1">
+        <div class="map_f__title">EMAIL</div>
+        <div class="map_f__text">info&#64;marcc.com.au</div>
+      </div>
+    </div>
+  </div>
+</div>

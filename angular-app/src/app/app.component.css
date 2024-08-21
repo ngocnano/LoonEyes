@@ -3,6 +3,66 @@
 
 }
 
+.menu_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_menu {
+  color: white;
+  padding-right: 85px;
+}
+
+.icon_menu:hover {
+  color: rgb(24, 10, 115);
+}
+
 .app {
   overflow: hidden;
 }
+
+::ng-deep  .ant-drawer-body {
+
+    padding: 0px !important;
+  
+}
+
+::ng-deep .ant-drawer-title {
+  background-color: black;
+}
+
+::ng-deep .ant-drawer-header {
+  padding: 0px;
+  border: none;
+}
+
+@media only screen and (min-width: 2000px) {
+  .menu_main {
+      padding-left: 5%;
+    }
+}
+
+
+@media only screen and (max-width: 2000px) {
+  .img_menu_1 {
+      padding-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+  .img_menu_1 {
+      padding-left: 60px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+  .img_menu_1 {
+      padding-left: 10px;
+    }
+}
+
+.img_menu_1 {
+  height: 90px;
+}
+
+

@@ -1,0 +1,72 @@
+<div class="h w100">
+
+
+  <div class="logo1">
+    <img src="/assest/image/logo.png">
+</div>
+
+
+  <!-- <nz-anchor class="menu_achor">
+    <nz-link nzHref="#app-about-me" nzTitle="Basic demo"></nz-link>
+    <nz-link nzHref="#app-logo" nzTitle="Static demo"></nz-link>
+    <nz-link nzHref="#api" nzTitle="API">
+      <nz-link nzHref="#nz-anchor" nzTitle="nz-anchor"></nz-link>
+      <nz-link nzHref="#nz-link" nzTitle="nz-link"></nz-link>
+    </nz-link>
+  </nz-anchor> -->
+
+
+
+    <app-header #header></app-header>
+  
+    @defer (on viewport) {
+      <app-about-me id="app-about-me" class="scrollable"></app-about-me>
+    } @placeholder {
+      <p></p>
+    }
+  
+    @defer (on viewport) {
+      <app-logo id="app-about-me" class="scrollable"></app-logo>
+    } @placeholder {
+      <p id="app-about-me"></p>
+    }
+  
+    @defer (on viewport) {
+      <app-service id="app-service" class="scrollable"></app-service>
+    } @placeholder {
+      <p id="app-service"></p>
+    }
+  
+  
+    @defer (on viewport) {
+      <app-project id="app-project" class="scrollable"></app-project>
+    } @placeholder {
+      <p id="app-project"></p>
+    }
+
+
+    @defer (on viewport) {
+      <app-our-team  id="app-our-team" class="scrollable"></app-our-team>
+    } @placeholder {
+      <p></p>
+    }
+
+    @defer (on viewport) {
+      <app-start  id="app-start" class="scrollable"></app-start>
+    } @placeholder {
+      <p id="app-start"></p>
+    }
+
+
+    @defer (on viewport) {
+      <app-customer  id="app-customer" class="scrollable"></app-customer>
+    } @placeholder {
+      <p id="app-customer"></p>
+    }
+  
+  
+  
+  
+  </div>
+  
+  

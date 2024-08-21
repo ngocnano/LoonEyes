@@ -93,7 +93,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts":  { "postinstall": "ngcc" } 
           }
         }
       }

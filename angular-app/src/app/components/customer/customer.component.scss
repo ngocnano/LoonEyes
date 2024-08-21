@@ -1,0 +1,138 @@
+.cus_title {
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: left;
+    color: #3665F9;
+
+}
+
+
+.cus_text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: left;
+    color: #CDCDCD;
+
+}
+
+.cus_name {
+font-size: 18px;
+font-weight: 400;
+line-height: 28.8px;
+text-align: left;
+color: #3665F9;
+
+}
+
+.cus_footer {
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-image: linear-gradient(to bottom, #151111ec, #000000) 1;
+padding: 30px;
+}
+
+.cus_cp {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
+  text-align: left;
+  color: #CDCDCD;
+
+  }
+
+
+.cus_main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+    padding: 30px;
+    border: 1px solid;
+
+border-image-source: linear-gradient(90deg, rgba(47, 70, 106, 0.1) -2.94%, #2f466a00 49.17%, rgba(47, 70, 106, 0.1) 102.37%);
+
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)), radial-gradient(54.52% 54.52% at 50% 0%, rgb(131 172 240 / 72%) 0.27%, rgba(131, 172, 240, 0) 100%);
+}
+
+.cus::before {
+
+}
+
+.f {
+  border-radius: 30px 30px 0px 0px;
+  border-image: linear-gradient(to right, #00f5ff 0%, #3947a7 100%) 1;
+  border: 1px solid;
+  padding: 0px !important;
+  border-bottom: none;
+  ::ng-deep .ant-avatar-lg {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+.cus {
+border-radius: 30px 30px 0px 0px;
+  ::ng-deep .ant-card-bordered {
+    border: none;
+  }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px 0px 1px 1px solid #ffff; */
+    row-gap: 35px;
+  color: #313149;
+  /* border: 1px solid transparent;
+  border-image: linear-gradient(deepskyblue, mediumblue); */
+  display: inline-block;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)), radial-gradient(54.52% 54.52% at 50% 0%, rgb(131 172 240 / 72%) 0.27%, rgba(131, 172, 240, 0) 100%);
+}
+
+
+
+
+
+.card {
+    background: initial;
+    ::ng-deep .ant-card-body {
+      padding: 0px;
+    }
+}
+
+.box {
+    /* Centering the inner text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Sizing the box */ 
+    /* Let's round the corners to make it more interesting */ 
+    border-radius: 20px;
+  }
+  
+  .border-gradient {
+    /* We set the gradient on the element itself */
+      background-image: linear-gradient(deepskyblue, mediumblue);
+    /* ensures child position will be absolute within this element's stacking context */
+    position: relative;
+    /* z-index + position:relative creaates a new stacking context so that we can reorder child elements within this element */
+    z-index: 1;
+  }
+  
+  .border-gradient::before {
+    content: '';
+    display: block;
+    /* We puth the actual background color for the contents here */
+    background-color: white;
+    position: absolute;
+    /* We need to subtract a percentage equivalent to the amount used for top and left, since this curve is proportionally a little bit more closed than the outer one */
+    border-radius: calc(20px - 2%);
+    /* the top amount is half of the width remaining space */
+    height: 96%;
+    width: 96%;
+    /* z-index puts the child at the bottom of the stack, since we had created a new stacking context for the parent element this z-index will put the element behind all child content of the element, but not behind it */
+    z-index: -1;
+  }
+
+

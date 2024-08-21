@@ -1,0 +1,84 @@
+.header {
+    background-image: url('/assest/image/bg_logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100vw;
+height: 562px;
+
+
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+font-size: 40px;
+font-weight: 700;
+line-height: 48px;
+text-align: center;
+color: #FFFFFF;
+
+}
+
+.aff {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px;
+}
+
+.title_x {
+    font-family: Inter;
+font-size: 17px;
+font-weight: 900;
+line-height: 20.57px;
+letter-spacing: 0.07em;
+text-align: left;
+color: #F8F8F8;
+padding-bottom: 20px;
+
+}
+
+
+.title_name {
+    font-family: Inter;
+    font-size: 45px;
+    font-weight: 900;
+    line-height: 60px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #3665F9;
+    padding-bottom: 20px;
+    
+    }
+
+
+    .title_text {
+
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 20.4px;
+        text-align: left;
+        color: #6E6E6E;
+
+        padding-bottom: 20px;
+        }
+
+.ct {
+    width: 512px;
+
+
+}
+
+.ct_m {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    padding: 30px;
+}

@@ -7,13 +7,15 @@ body
     background-color: #FAFAFA;
 }
 
+
+.img_menu {
+    height: 90px;
+}
+
 .main {
     background: black;
     overflow: hidden;
-}
-
-.content-card {
-    padding: 10% 10%;
+    padding: 100px;
 }
 
 .title {
@@ -36,8 +38,7 @@ body
 }
 
 .title_text {
-    padding-left: 10%;
-    padding-top: 10%;
+
 }
 
 .title_btn {
@@ -60,6 +61,10 @@ body
   transform: scale(1.1);
 }
 
+.item:hover {
+    transform: scale(1.1);
+}
+
 .k1 {
     animation: cssAnimation 0s 5s forwards;
     visibility: hidden;
@@ -79,6 +84,26 @@ body
         top: 0%;
     }
 }
+
+.button {
+    margin-bottom: 12px;
+    z-index: 100;
+  }
+
+  .drone_button {
+    width: 200px;
+    height: 50px;
+    border-radius: 353.31px;
+    border: 2px solid white;
+    color: white;
+    background: linear-gradient(90deg, rgba(21, 51, 156, 0.8) -11.36%, rgba(27, 47, 117, 0.096) 104.55%);
+
+}
+
+.drone_button:hover {
+    transform: scale(1.2);
+}
+
 
 .flex_row {
     display: flex;
@@ -141,17 +166,18 @@ body
 }
 
 .h100 {
-    width: 100%;
+    height: 100%;
 }
 
 .title_card {
+    font-family: "Signika Negative", sans-serif;
 font-size: 32px;
 font-weight: 600;
-line-height: 44.8px;
 text-align: left;
 color: #3665F9;
 }
 .text_card {
+    font-family: "Signika Negative", sans-serif;
 font-size: 18px;
 font-weight: 400;
 line-height: 28.8px;
@@ -159,4 +185,30 @@ text-align: left;
 color: #CDCDCD;
 
 }
+
+.menu_icon {
+    margin-left: 15px;
+    border-radius: 50%;
+    height: 15px !important;
+    width: 15px !important;
+    background: white;
+  }
+
+  .menu_icon_selected {
+    box-shadow: #40a9ff 0px 0px 15px 0px, #096dd9 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+.ant-modal-header {
+    background: black;
+    border: none;
+}
+
+.ant-modal-close-x {
+    color: blue;
+}
+
+.ant-modal-body {
+    background: black;
+}
+
 

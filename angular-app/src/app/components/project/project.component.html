@@ -1,0 +1,86 @@
+<div class="main project">
+    <div nz-row class="title_text" [nzGutter]="[60,60]">
+        <div nz-col nzLg="16">
+            <div class="title">Dự án</div>
+            <div class="title_main">Các dự án tiêu biểu</div>
+        </div>
+        <div nz-col nzLg="8" class="title_btn w100" nz-flex [nzJustify]="'flex-end'">
+            <button class="btn" (click)="changeList()">Xem thêm</button>
+        </div>
+        @defer (on viewport) {
+
+            @for (item of project; track $index) {
+                <div nz-col nzMd="12" nzSm="24" nzXs="24" nzLg="8" class="v item" (click)="changeDetail(item.id)">
+                    <!-- <div  class="image_project v" [style.background-image]="'url(\'/assest/image/project1.png\')'">
+                        <span>Project 1</span>
+                    </div> -->
+                      <ng-container *ngTemplateOutlet="mainTemplate; context: {item : item}"></ng-container>
+
+                </div>
+            }
+
+            <ng-template let-item="item" #mainTemplate>
+                <nz-card nzHoverable  [nzCover]="coverTemplate">
+                    <nz-card-meta [nzTitle]="item.name"></nz-card-meta>
+                  </nz-card>
+                  <ng-template #coverTemplate >
+                    <img alt="example" [src]="item.url" />
+                  </ng-template>
+            </ng-template>
+
+        
+        } @placeholder {
+            <p></p>
+        }
+    </div>
+
+
+
+
+   <!-- <div nz-row class="title_text">
+    <div nz-col nzLg="12">
+        <div class="content">
+            <div class="title">Dự án</div>
+            <div class="title_main">Các dự án tiêu biểu</div>
+        </div>
+        @defer (on viewport) {
+            <div class="image_project v" [style.background-image]="'url(\'/assest/image/project1.png\')'">
+            </div>
+        } @placeholder {
+            <p></p>
+        }
+        @defer (on viewport) {
+            <div class="image_project v" [style.background-image]="'url(\'/assest/image/project2.png\')'">
+            </div>
+        } @placeholder {
+            <p></p>
+        }
+
+    </div>
+    <div nz-col nzLg="12">
+        @defer (on viewport) {
+            <div class="image_project image_main v" [style.background-image]="'url(\'/assest/image/project3.png\')'"  nz-flex [nzAlign]="'center'" [nzVertical]="true" [nzJustify]="'center'">
+                <div class="img_title">Dự án</div>
+                <div class="img_content">Các dự án tiêu biểu</div>
+
+        </div>
+        } @placeholder {
+            <p></p>
+        }
+
+        @defer (on viewport) {
+            <div class="image_project v" [style.background-image]="'url(\'/assest/image/project4.png\')'">
+            
+            </div>
+        } @placeholder {
+            <p></p>
+        }
+
+        <div class="btn_end">
+            <button class="btn" (click)="changeList()">Xem toàn bộ dự án</button>
+        </div>
+
+    </div>
+    
+   </div> -->
+</div>

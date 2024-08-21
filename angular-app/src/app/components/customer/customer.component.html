@@ -1,0 +1,49 @@
+<div nz-row [nzGutter]="[32, 50]" class="main content-card title_text">
+  <div nz-col nzLg="16">
+    <div class="content">
+      <div class="title">Đánh giá</div>
+      <div class="title_main">Khách hàng nói gì về chúng tôi</div>
+    </div>
+  </div>
+  <div nz-col nzLg="8"></div>
+  @for (item of [1,2,3]; track $index) {
+    <div nz-col nzLg="8" >
+      <div class="f w100">
+        <div class="cus w100">
+        <nz-card nzHoverable [nzCover]="coverTemplate" class="card w100">
+
+        </nz-card>
+      </div>
+      </div>
+    </div>
+  }
+
+</div>
+
+<ng-template #coverTemplate>
+  <div class="cus_main">
+    <div>
+      <nz-avatar
+        style="background-color: #fff"
+        [nzSize]="'large'"
+        nzIcon="user"
+        nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      ></nz-avatar>
+    </div>
+    <div class="cus_content">
+      <div class="cus_title">“Màn trình diễn drone vô cùng mãn nhãn”</div>
+      <div class="cus_text">
+        Massa malesuada aliquam fames senectus vitae ornare. Fringilla sit
+        varius mattis ultricies sed nulla.
+      </div>
+    </div>
+  </div>
+  <div class="cus_footer">
+    <div class="cus_name">
+      James Reynolds
+    </div>
+    <div class="cus_cp">
+Công ty ABC
+    </div>
+  </div>
+</ng-template>

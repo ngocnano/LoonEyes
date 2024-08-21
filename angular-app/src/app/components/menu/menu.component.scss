@@ -1,0 +1,201 @@
+.container {
+  background: url("/assest/image/bottom_menu.png");
+
+  background-position: bottom;
+  /* background-size: 100%; */
+  background-repeat: no-repeat;
+  background-color: black;
+  height: calc(100% - 50px);
+}
+
+.title_menu {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 67.2px;
+  text-align: left;
+  color: white;
+  border-bottom: 1px solid #ffffff;
+}
+
+.title_menu_check {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 67.2px;
+  text-align: left;
+  color: #3665f9;
+  border-bottom: 1px solid #ffffff;
+}
+
+.title_menu:hover {
+  color: #3665f9;
+}
+
+@media only screen and (min-width: 2000px) {
+    .menu_main {
+        padding: 5% 5%;
+      }
+}
+
+
+@media only screen and (max-width: 2000px) {
+    .menu_main {
+        padding: 40px 80px;
+      }
+  }
+  
+  @media only screen and (max-width: 1400px) {
+    .menu_main {
+        padding: 0px 60px;
+      }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .menu_main {
+        padding: 10px 10px;
+      }
+  }
+
+.content_menu {
+}
+
+::ng-deep .ant-layout {
+  background: inherit;
+}
+
+::ng-deep .ant-list-item {
+  border: none;
+  border-bottom: none !important;
+}
+
+::ng-deep .ant-list-bordered {
+  border: none;
+}
+::ng-deep {
+  .ant-layout-sider {
+    background: space;
+  }
+
+  .ant-layout-footer {
+    background: space;
+  }
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  padding-bottom: 50px;
+}
+
+.link_text {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: right;
+  color: #a5a5a5;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+
+.icon {
+  color: white;
+  display: flex;
+  column-gap: 20px;
+  padding: 12px 24px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  background: black;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 10s slide infinite linear;
+}
+
+.logos-slide .img {
+  height: 50px;
+  margin: 0 40px;
+}
+
+.img {
+  display: inline-block;
+}
+
+.img img {
+  padding-right: 20px;
+}
+
+.header {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: animate 2s linear forwards;
+}
+
+@keyframes animate {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.transform {
+  animation-name: transform;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-direction: alternate;
+}
+
+@keyframes transform {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}

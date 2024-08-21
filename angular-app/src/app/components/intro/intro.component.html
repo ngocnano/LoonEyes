@@ -1,0 +1,76 @@
+<div class="container">
+  <!-- <div nz-row>
+        <div     nz-col nzLg="8">
+            <img src="/assest/image/logo.png">
+          </div>
+    
+        <div nz-col nzLg="16" class="w100" nz-flex [nzJustify]="'flex-end'">
+         <img src="/assest/image/menu.png">
+        </div>  
+     </div> -->
+
+  <nz-affix [nzOffsetTop]="10">
+    <div class="aff_c w100">
+        <div class="aff">
+            <div (click)="changeTo()">
+              <img src="/assest/image/logo.png" />
+            </div>
+      
+            <div class="menu" (click)="openMenu()">
+              <div class="wrapper">
+                <img src="/assest/image/menu.png" />
+              </div>
+            </div>
+          </div>
+    </div>
+
+  </nz-affix>
+
+  <app-yt-player [videoID]="id" [isAutoPlay]="true"></app-yt-player>
+
+  <div class="main">
+    <div class="it_title">VỀ CHÚNG TÔI</div>
+    <div class="it_text">
+      Đơn vị tiên phong trong đầu tư và ứng dụng các công nghệ tiên tiến của máy
+      bay không người lái ( Drone ) vào quảng cáo và truyền thông
+    </div>
+
+    <div class="button">
+      <button class="drone_button" (click)="changeToContact()">
+        Bắt đầu dự án
+        <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+      </button>
+    </div>
+
+    <div nz-row [nzGutter]="[60, 60]" class="main_content">
+      @for (item of intro; track $index) {
+      <div nz-col nzLg="8">
+        <div class="card">
+          <div class="count_tt">{{ "0" + ($index + 1) }}</div>
+          <div class="icon_text">{{ item.title }}</div>
+          <div class="text_content">{{ item.text }}</div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+
+  @defer (on viewport) {
+  <app-logo id="app-about-me" class="scrollable"></app-logo>
+  } @placeholder {
+  <p></p>
+  } @defer (on viewport) {
+  <app-our-team id="app-our-team" class="scrollable"></app-our-team>
+  } @placeholder {
+  <p></p>
+  } @defer (on viewport) {
+  <app-start id="app-start" class="scrollable"></app-start>
+  } @placeholder {
+  <p></p>
+  } @defer (on viewport) {
+  <app-customer id="app-customer" class="scrollable"></app-customer>
+  } @placeholder {
+  <p></p>
+  }
+</div>

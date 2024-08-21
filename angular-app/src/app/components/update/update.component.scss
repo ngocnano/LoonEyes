@@ -1,0 +1,11 @@
+::ng-deep {
+    textarea.ant-input {
+        min-height: 100vh !important;
+    }
+}
+
+.d {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
