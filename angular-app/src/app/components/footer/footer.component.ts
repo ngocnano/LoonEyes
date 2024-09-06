@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NzGridModule, NzCollapseModule, NzIconModule],
+  imports: [NzGridModule, NzCollapseModule, NzIconModule, NzIconModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
 
@@ -28,5 +28,9 @@ export class FooterComponent {
   changeRouter(url:string){
     this.router.navigateByUrl(url);
   }
+
+  goToLink(url: string){
+    window.open(url, "_blank");
+}
 
 }

@@ -1,6 +1,11 @@
 
 .main {
     background: black;
+    ::ng-deep {
+      .ant-layout-header {
+          padding: 0px !important;
+      }
+  } 
 }
 .title {
     font-size: 48px;
@@ -100,7 +105,7 @@ color: #3665F9;
 }
 
 .content {
-  padding: 20px;
+  
 }
 
 .zoom-img {

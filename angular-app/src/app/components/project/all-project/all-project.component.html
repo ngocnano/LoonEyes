@@ -1,14 +1,31 @@
 <div>
+
+    <nz-affix [nzOffsetTop]="10">
+        <div class="aff_c w100">
+            <div class="aff">
+                <div (click)="changeTo()">
+                  <img class="logo_main" src="/assest/image/logo.png" />
+                </div>
+          
+                <div class="menu" (click)="openMenu()">
+                  <div class="wrapper">
+                    <img src="/assest/image/menu.png" />
+                  </div>
+                </div>
+              </div>
+        </div>
+    
+      </nz-affix>
     <nz-layout class="main">
-        <div nz-row>
+        <!-- <div nz-row>
            <div     nz-col nzLg="8" (click)="changeTo()">
-               <img src="/assest/image/logo.png">
+               <img class="logo_main" src="/assest/image/logo.png">
              </div>
        
            <div nz-col nzLg="16" class="w100" nz-flex [nzJustify]="'flex-end'" (click)="openMenu()">
             <img src="/assest/image/menu.png">
            </div>  
-        </div>
+        </div> -->
            <nz-layout class="main_project header">
                <nz-header nz-flex [nzJustify]="'space-between'">
                    <div class="title">Dự án</div>
@@ -28,7 +45,7 @@
                                 <!-- <div class="img" [style.background-image]="'url(' + item.url + ')'"> -->
                             <!-- </div> -->
                             </div>
-                            <div class="title">{{item.name}}</div>
+                            <div class="title" style="padding-top: 60px;">{{item.name}}</div>
                         </div>
                     }
                     

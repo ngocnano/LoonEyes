@@ -21,7 +21,7 @@ export class HighlightDirective {
 
    private highlight(color:string) {
     this.el.style.background = color;
-    this.el.className = 'image_our'
+    this.el.className = 'image_our h100'
   }
 
 }

@@ -49,6 +49,7 @@ export class NewDetailComponent {
     } else {
       
       this.project = this.news.find((item: any) => item.id === Number(id));
+      console.log(this.project)
     }
   }
   ngOnInit(): void {

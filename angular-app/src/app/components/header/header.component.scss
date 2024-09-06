@@ -71,93 +71,7 @@
   }
 
 
-.home_img_child {
-    width: 1549px;
-    height: 1461px;
-    top: -761px;
-    z-index: 4;
-  flex-shrink: 0;
-  border-radius: 100%;
-  opacity: 0.4;
-  mix-blend-mode: luminosity;
-  border: 1px solid #FFF;
-  rotate: 180deg;
-  background: radial-gradient(60.42% 60.42% at 50.02% 60.42%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.00) 69.42%, rgba(255, 255, 255, 0.08) 75.33%, rgba(255, 255, 255, 0.13) 80.42%, rgba(255, 255, 255, 0.31) 86.39%, rgba(255, 255, 255, 0.57) 92.19%, #FFF 100%);
-  box-shadow: 0px -20px 40px 0px rgba(255, 255, 255, 0.60);
-  position: absolute;
-  z-index: 99;
-}
 
-@media screen and (max-width: 3000px), (min-width: 3000px) {
-  .home_img_child {
-    width: 2549px;
-    height: 2261px;
-    top: -1000px;
-  }
-
-  .drone {
-    top: 500px;
-  }
-}
-
-
-@media only screen and (max-width: 2500px) {
-  .home_img_child {
-    width: 2049px;
-    height: 1861px;
-    top: -900px;
-  }
-  .drone {
-    top: 450px;
-  }
-}
-
-@media only screen and (max-width: 2000px) {
-  .home_img_child {
-    width: 1749px;
-    height: 1561px;
-    top: -800px;
-  }
-  .drone {
-    top: 400px;
-  }
-}
-
-
-@media only screen and (max-width: 1600px) {
-  .home_img_child {
-    width: 1449px;
-    height: 1361px;
-    top: -750px;
-  }
-  .drone {
-    top: 350px;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .home_img_child {
-    width: 1100px;
-    height: 1000px;
-    top: -500px;
-  }
-
-  .drone {
-    top: 250px;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .home_img_child {
-    width: 900px;
-    height: 800px;
-    top: -400px;
-  }
-
-  .drone {
-    top: 200px;
-  }
-}
 
 .star {
     position: absolute;
@@ -198,9 +112,14 @@
     }
 }
 
-.wrapper {
-    width: 240px;
-  }
+
+.select {
+  visibility: hidden;
+}
+
+.wrapper:hover .select {
+  visibility: visible;
+}  
 
  
   .menu {
@@ -352,6 +271,13 @@ text-align: center;
   @media (min-width: 360px) {
     .ai-sssm\:bottom-\[738px\] {
       bottom: 738px;
+    }
+  }
+
+  .affm {
+    ::ng-deep .ant-affix {
+      background: black !important;
+
     }
   }
 

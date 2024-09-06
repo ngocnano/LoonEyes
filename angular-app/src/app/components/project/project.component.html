@@ -9,22 +9,30 @@
         </div>
         @defer (on viewport) {
 
-            @for (item of project; track $index) {
-                <div nz-col nzMd="12" nzSm="24" nzXs="24" nzLg="8" class="v item" (click)="changeDetail(item.id)">
-                    <!-- <div  class="image_project v" [style.background-image]="'url(\'/assest/image/project1.png\')'">
-                        <span>Project 1</span>
-                    </div> -->
-                      <ng-container *ngTemplateOutlet="mainTemplate; context: {item : item}"></ng-container>
-
-                </div>
-            }
+            <div nz-row class="ct" [nzGutter]="[60,60]">
+                @for (item of project; track $index) {
+                    <div nz-col nzMd="12" nzSm="24" nzXs="24" nzLg="8" class="v item h100" (click)="changeDetail(item.id)">
+                        <!-- <div  class="image_project v" [style.background-image]="'url(\'/assest/image/project1.png\')'">
+                            <span>Project 1</span>
+                        </div> -->
+                          <ng-container *ngTemplateOutlet="mainTemplate; context: {item : item}"></ng-container>
+    
+                    </div>
+                }
+            </div>
 
             <ng-template let-item="item" #mainTemplate>
-                <nz-card nzHoverable  [nzCover]="coverTemplate">
+                <nz-card nzHoverable  [nzCover]="coverTemplate" style="background: inherit;
+                display: flex;
+                height: 100%;
+                justify-content: space-between;
+                flex-direction: column;">
                     <nz-card-meta [nzTitle]="item.name"></nz-card-meta>
                   </nz-card>
                   <ng-template #coverTemplate >
-                    <img alt="example" [src]="item.url" />
+
+                        <img alt="example" [src]="item.url" />
+                    
                   </ng-template>
             </ng-template>
 

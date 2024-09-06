@@ -3,6 +3,12 @@
     border-radius: 50px 50px 0px 0px;
     padding: 56px 5%;
     border-top: 1px solid;
+    ::ng-deep {
+        .anticon svg {
+            width: 27px;
+            height: 27px;
+        }
+    }
 }
 
 ::placeholder {
@@ -118,6 +124,7 @@ input[type=text] {
 
 .ct_value {
     padding-bottom: 20px;
+    color: white;
 }
 
 .footer {
@@ -134,3 +141,4 @@ text-align: left;
 color: #CDCDCD;
 
 }
+

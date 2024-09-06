@@ -16,7 +16,7 @@ export class ServiceComponent {
   service:any;
   constructor(private router: Router, private common:CommonServiceService) {
     this.common.type.subscribe((data:any) => {
-      this.service = data.filter((item:any) => item.id);
+      this.service = data.filter((item:any) => item.show);
     })
 
   }
@@ -26,6 +26,10 @@ export class ServiceComponent {
   }
 
   changeToProject(id:any){
+    if(!id){
+      this.router.navigate(["/project"])
+      return
+    }
     this.router.navigate(["/project", {id:id}])
 }
 }

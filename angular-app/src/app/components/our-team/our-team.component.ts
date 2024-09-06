@@ -31,17 +31,21 @@ export class OurTeamComponent implements OnInit {
   changePage($event: any) {
     this.currentPage = $event;
   }
-  constructor(private commonService: CommonServiceService) {}
+  constructor(private commonService: CommonServiceService) {
+    this.commonService.team.subscribe(item => {
+      this.ourTeam = [...item]
+    })
+  }
   currentPage: number = 0;
   total: number = 0;
   ngOnInit(): void {
     this.commonService.mediaBreakpoint$.subscribe(size => {
       if ([SIZE_TYPE.XXL].includes(size)) {
-      this.refresh(4);
-      this.nzSpan = 6
+      this.refresh(3);
+      this.nzSpan = 8
     } else if ([SIZE_TYPE.XL].includes(this.commonService.size)) {
-      this.refresh(4);
-      this.nzSpan = 6
+      this.refresh(3);
+      this.nzSpan = 8
     } else if ([SIZE_TYPE.MD, SIZE_TYPE.LG].includes(this.commonService.size)) {
       this.refresh(3);
       this.nzSpan = 8
@@ -53,18 +57,27 @@ export class OurTeamComponent implements OnInit {
 }
 
   refresh(size: number) {
+
+
     this.showItem = []
+
+    if(this.ourTeam.length <= size) {
+      this.showItem.push([...this.ourTeam])
+      this.array = [0]
+      return;
+    }
     this.total = this.ourTeam.length / size;
     this.array = [];
     for (let i = 0; i < this.total; i++) {
       this.array.push(i);
       let index = i * size;
       let to = index + size;
-      if (to > this.ourTeam.length - 1) {
-        to = this.ourTeam.length - 1;
-      }
+      // if (to > this.ourTeam.length - 1) {
+      //   to = this.ourTeam.length - 1;
+      // }
       this.showItem.push([...this.ourTeam.slice(index, to)]);
     }
+    console.log(this.showItem, 'show')
   }
 
   showItem: any = [];
@@ -72,12 +85,12 @@ export class OurTeamComponent implements OnInit {
   ourTeam = [
     {
       url: '/assest/image/our.JPG',
-      name: 'Hoàng Việt Long',
+      name: 'Hoàng Bảo Anh',
       job: 'Chief Executive Officer',
     },
     {
       url: '/assest/image/our.JPG',
-      name: 'Đỗ Hoàng Anh',
+      name: 'Nguyễn Hoàng Anh',
       job: 'Chief Executive Officer',
     },
     {

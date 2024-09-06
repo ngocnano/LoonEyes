@@ -10,9 +10,23 @@
     </div>
 
     @defer (on viewport) {
-        <div nz-row [nzGutter]="[60,60]" class="content">
+        <div nz-row [nzGutter]="[0,60]" class="content">
 
-            @for (item of service; track $index) {
+
+            <div nz-row [nzGutter]="[60, 60]" class="main_content w100">
+                @for (item of service; track $index) {
+                <div nz-col nzLg="8">
+                  <div class="card" >
+                    <div class="count_tt">{{ "0" + ($index + 1) }}</div>
+                    <div (click)="changeToProject(item.id)" style="padding-bottom: 25px;"><img src="/assest/icon/t.svg"> </div>
+                    <div class="icon_text">{{ item.name }}</div>
+                    <div class="text_content">{{ item.title }}</div>
+                  </div>
+                </div>
+                }
+              </div>
+
+            <!-- @for (item of service; track $index) {
                 <div nz-col nzLg="12" nzMd="12" nzXs="24" nzSm="24" (click)="changeToProject(item.id)">
                     <div class="icon_content c1" nz-flex [nzAlign]="'center'" [nzGap]="'15px'">
                         <img [src]="item.icon">
@@ -22,7 +36,7 @@
                         {{item.des}}
                     </div>
                 </div>
-            }
+            } -->
         </div>
     } @placeholder {
         <p></p>

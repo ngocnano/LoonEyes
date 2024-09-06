@@ -3,7 +3,7 @@
         <div class="aff_c w100">
             <div class="aff">
                 <div (click)="changeTo()">
-                  <img src="/assest/image/logo.png" />
+                  <img class="logo_main" src="/assest/image/logo.png" />
                 </div>
           
                 <div class="menu" (click)="openMenu()">
@@ -17,7 +17,7 @@
       </nz-affix>
 
       <div class="w100 h100 title">
-        <div class="text">{{project.title}}</div>
+        <div class="text">{{project?.title}}</div>
       </div>
 
 
@@ -26,7 +26,7 @@
 
 
 <div nz-row [nzGutter]="[50, 50]" class="container_main">
-    @for (item of project.newDetail; track $index) {
+    @for (item of project?.newDetail; track $index) {
         <div nz-col [nzLg]="item.nzLg" [nzMd]="item.nzLg" [nzSm]="item.nzSm" [nzXs]="item.nzXs">
             @if (item.detailType === 'img') {
                 <div class="pj_img">
@@ -88,7 +88,7 @@
                     <div>
                         <img [src]="item.img" class="img_inner" (click)="changeToNewDetail(item.id)">
                     </div>
-                    <div class="container_text__title_sub">{{item.title}}</div>
+                    <div class="container_text__title_sub">{{item?.title}}</div>
                   </div>
               }
             </div>

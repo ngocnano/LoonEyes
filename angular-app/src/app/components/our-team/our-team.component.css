@@ -1,11 +1,11 @@
 [nz-carousel-content] {
   text-align: center;
-  height: 515px;
+
   color: #fff;
 }
 
 .content-card {
-  height: 800px;
+  height: 1000px;
 }
 
 
@@ -19,9 +19,12 @@ h3 {
 .image_our {
   border-radius: 30px;
   overflow: hidden;
-  background-size: 100% !important;
   width: 100%;
   margin-bottom: 20px;
+  max-height: 855px;
+  background-size:     cover !important;                      /* <------ */
+  background-repeat:   no-repeat !important;
+  background-position: center center !important;  
 }
 
 .img_inner {
@@ -30,7 +33,7 @@ h3 {
 }
 
 .our {
-  padding: 100px;
+  height: 1200px;
 }
 
 

@@ -43,5 +43,10 @@ export class MenuComponent implements OnInit {
     this.router.navigateByUrl(_t16.url).then(() => this.commonServiceService.close())
   }
 
+  goToLink(url: string){
+    window.open(url, "_blank");
+}
+
+
 
 }

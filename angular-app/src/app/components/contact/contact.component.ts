@@ -12,11 +12,12 @@ import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/co
 import { NzUploadChangeParam, NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzAffixModule } from 'ng-zorro-antd/affix';
 const phoneEmailRegex = /^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}))$/;
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, NzGridModule, NzFlexModule, NzFlexModule,
+  imports: [CommonModule, NzGridModule, NzFlexModule, NzFlexModule, NzAffixModule,
     FormsModule, ReactiveFormsModule, NzFormModule, GoogleMapsModule, HttpClientModule, 
     HttpClientJsonpModule, NzUploadModule, NzIconModule],
   templateUrl: './contact.component.html',

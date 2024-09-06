@@ -19,7 +19,7 @@ import { CommonServiceService } from '../../services/common-service.service';
     StartComponent,
   ],
   templateUrl: './service-list.component.html',
-  styleUrl: './service-list.component.css',
+  styleUrl: './service-list.component.scss',
 })
 export class ServiceListComponent {
 
@@ -38,7 +38,7 @@ export class ServiceListComponent {
   ) {
 
     common.type.subscribe(data => {
-      this.services = data.filter((item:any) => item.id !== null);
+      this.services = data.filter((item:any) => item.id);
     })
 
   }
@@ -48,6 +48,10 @@ export class ServiceListComponent {
   }
   changeTo() {
     this.router.navigateByUrl('/');
+  }
+
+  onChange(e:any) {
+      console.log(e)
   }
 
 }

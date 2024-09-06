@@ -29,6 +29,8 @@ export class CommonServiceService implements OnDestroy {
 
   project = new BehaviorSubject([])
 
+  team = new BehaviorSubject([])
+
   constructor(private http: HttpClient, private message: NzMessageService) {
     this.fetchRecipes('menu', this.menu) as any;
     this.fetchRecipes('new', this.new) as any;
@@ -36,6 +38,7 @@ export class CommonServiceService implements OnDestroy {
     this.fetchRecipes('intro', this.intro) as any;
     this.fetchRecipes('type', this.type) as any;
     this.fetchRecipes('project', this.project) as any;
+    this.fetchRecipes('team', this.team) as any;
 
     this.init();
   }

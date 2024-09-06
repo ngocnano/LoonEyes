@@ -72,12 +72,9 @@
     <img class="star-img  star" src="/assest/image/bg-star.png" [style]="item" >
     }
   </div>
-  <nz-affix [nzOffsetTop]="0">
-    <!-- <div 
-    style="background-color: #1f3131a1;"
-    > -->
+  <nz-affix [nzOffsetTop]="0" class="affm">
     <div>
-      <img src="/assest/image/logo.png">
+      <img class="logo_main" src="/assest/image/logo.png">
     </div>
 
     <div class="menu" (mouseover)="focusTitle(false)" (mouseout)="focusTitle(true)">
@@ -85,7 +82,7 @@
       <div class="wrapper">
           <img src="/assest/image/menu.png"
           (click)="createMenu()">
-          <ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed" [nzTheme]="'dark'">
+          <!-- <ul class="select" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed" [nzTheme]="'dark'">
               @for (item of menu; track item.title) {
               <li (click)="changePage(item)"
                   nz-menu-item
@@ -99,7 +96,7 @@
                 </div>
                 </li>
               }
-          </ul>
+          </ul> -->
         </div>
   </div>
   
@@ -113,7 +110,7 @@
     <div class="content">
         <div class="content_header">DRONE LIGHT SHOW</div>
         <div class="content_title">Cảm xúc hùng vĩ sẽ không phai đi</div>
-        <div class="content_main">Dignissim diam orci condimentum et. Non in nunc aenean massa amet enim sed sit. Id quam mattis mus malesuada sit. Volutpat sociis tempor quis mauris id. Hac mattis dui magna.</div>
+        <div class="content_main"></div>
     </div>
     <div class="button" (mouseover)="focusBtn(true)" (mouseout)="focusBtn(false)">
         <button class="drone_button"

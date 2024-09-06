@@ -9,7 +9,10 @@
     height: 637px;
 }
 
-
+img {
+  filter: rgb(255, 255, 255);
+  filter: brightness(0) invert(70%)  grayscale(90%);
+}
 
 * {
     margin: 0;
@@ -56,7 +59,7 @@
   
   .logos-slide {
     display: inline-block;
-    animation: 5s slide infinite linear;
+    animation: 10s slide infinite linear;
   }
   
   .logos-slide img {

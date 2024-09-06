@@ -10,6 +10,8 @@ import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { NzCarouselComponent, NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { SIZE_TYPE } from '../../services/constan';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
+import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-project-detail',
@@ -21,12 +23,14 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
     YtPlayerComponent,
     NzCarouselModule,
     NzFlexModule,
+    CommonModule
   ],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
 })
 export class ProjectDetailComponent implements OnInit {
-  projects;
+
+  projects:any;
   project: any;
   array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   dotPosition = 'top';
@@ -43,9 +47,12 @@ export class ProjectDetailComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router,
     private common: CommonServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    protected _sanitizer: DomSanitizer
   ) {
-    this.projects = projectService.project;
+    this.common.project.subscribe(item => {
+      this.projects = [...item]
+    })
     const id = this.route.snapshot.params['id'];
     if (!id) {
       this.changeTo();
@@ -109,5 +116,22 @@ export class ProjectDetailComponent implements OnInit {
   showItem: any = [];
   changeToProjectDetail(id: any) {
     this.router.navigate(['/project-detail', { id: id }]).then(() => {window.location.reload();});
+  }
+
+  transform(value: string, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
+    switch (type) {
+      case 'html':
+        return this._sanitizer.bypassSecurityTrustHtml(value);
+      case 'style':
+        return this._sanitizer.bypassSecurityTrustStyle(value);
+      case 'script':
+        return this._sanitizer.bypassSecurityTrustScript(value);
+      case 'url':
+        return this._sanitizer.bypassSecurityTrustUrl(value);
+      case 'resourceUrl':
+        return this._sanitizer.bypassSecurityTrustResourceUrl(value);
+      default:
+        return this._sanitizer.bypassSecurityTrustHtml(value);
+    }
   }
 }

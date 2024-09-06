@@ -12,10 +12,11 @@ height: 562px;
 .title {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .text {
-font-size: 40px;
+font-size: 60px;
 font-weight: 700;
 line-height: 48px;
 text-align: center;
@@ -81,4 +82,6 @@ padding-bottom: 20px;
 
 .container {
     padding: 30px;
+
 }
+

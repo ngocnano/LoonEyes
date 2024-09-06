@@ -46,7 +46,7 @@ export class NewComponent {
     private route: ActivatedRoute
   ) {
     this.common.new.subscribe(item => {
-      this.new = [...item]
+      this.news = [...item]
     })
     this.paging.numPage = (this.news.length / this.paging.size);
     this.changePageMain(0)

@@ -1,23 +1,51 @@
 
-.icon_text {
-font-size: 32px;
-font-weight: 600;
-line-height: 44.8px;
-text-align: left;
-color: #3665F9;
-}
 
+.count_tt {
+    font-family: Sora;
 
+    font-size: 128px;
+    font-weight: 600;
+    line-height: 179.2px;
+    text-align: left;
+    color: #CDCDCD;
+    padding-bottom: 150px;
+    }
+    
+    .icon_text {
+    
+        font-family: Sora;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 33.6px;
+        text-align: left;
+        
+        color: #3665F9;
+    
+    
+    }
+    
+    .text_content {
+        font-family: Sora;
 
-.text_content {
-    padding-top: 20px;
-font-size: 18px;
-font-weight: 400;
-line-height: 28.8px;
-text-align: left;
-color: #CDCDCD;
-width: 424px
-}
+        padding-top: 30px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 28.8px;
+        text-align: left;
+        
+    width: 265px;
+    
+    }
+    
+    .card {
+        padding: 20px;
+       
+        border-left: 1px solid;
+    }
+    .main_content {
+        padding-top: 50px;
+    }
+    
 
 .content {
     padding: 50px 0px;

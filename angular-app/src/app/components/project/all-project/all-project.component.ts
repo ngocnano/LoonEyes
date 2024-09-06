@@ -9,14 +9,15 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { StartComponent } from "../../start/start.component";
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonServiceService } from '../../../services/common-service.service';
+import { NzAffixModule } from 'ng-zorro-antd/affix';
 
 @Component({
   selector: 'app-all-project',
   standalone: true,
   providers: [ProjectService],
-  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, StartComponent],
+  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, StartComponent, NzAffixModule],
   templateUrl: './all-project.component.html',
-  styleUrl: './all-project.component.css'
+  styleUrl: './all-project.component.scss'
 })
 export class AllProjectComponent implements OnInit{
 
