@@ -9,11 +9,12 @@ import { CommonServiceService } from '../../services/common-service.service';
 import { SIZE_TYPE } from '../../services/constan';
 import { HighlightDirective } from '../../pipe/img-our.directive';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-our-team',
   standalone: true,
-  imports: [NzGridModule, NzCarouselModule, HighlightDirective, NzFlexModule],
+  imports: [NzGridModule, NzCarouselModule, HighlightDirective, NzFlexModule, TranslateModule],
   templateUrl: './our-team.component.html',
   styleUrl: './our-team.component.css',
 })

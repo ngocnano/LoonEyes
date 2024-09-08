@@ -1,4 +1,34 @@
 
+
+<nz-affix [nzOffsetTop]="0" class="affm">
+  <div style="z-index: 100;">
+    <img class="logo_main" src="/assest/image/logo.png" (click)="changeTo()">
+  </div>
+
+  <div class="menu" >
+  
+    <div class="wrapper">
+        <img src="/assest/image/menu.png" (click)="openMenu()">
+        <div class="i18">
+          <button nz-button nzType="primary" (click)="changeLang()">
+            <span nz-icon nzType="global"></span>
+            {{currentLangnge}}
+          </button>
+          <!-- <span nz-icon nzType="global" nzTheme="outline"></span>
+          <select #langSelect (change)="translate.use(langSelect.value)">
+            @for (lang of translate.getLangs(); track $index) {
+              <option  [value]="lang" [selected]="lang === translate.currentLang">
+                  {{ lang }}
+                </option>
+            }
+          </select> -->
+
+        </div>
+    
+      </div>
+</div>
+
+</nz-affix>
 <div class="app bg">
     <router-outlet></router-outlet>
     <app-footer id="app-footer"></app-footer>

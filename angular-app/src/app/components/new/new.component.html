@@ -1,4 +1,4 @@
-<nz-affix [nzOffsetTop]="10">
+<!-- <nz-affix [nzOffsetTop]="10">
   <div class="aff_c w100">
       <div class="aff">
           <div (click)="changeTo()">
@@ -13,13 +13,13 @@
         </div>
   </div>
 
-</nz-affix>
+</nz-affix> -->
 
 <div class="header">
 
 
       <div class="w100 h100 title">
-        <div class="text">Tin tức</div>
+        <div class="text">{{'new.title' | translate | uppercase}}</div>
       </div>
 
 
@@ -36,7 +36,7 @@
                 <div class="container__header__text">{{item.text}}</div>
             </div>
             <div>
-                <div class="container__link">Xem ngay <span nz-icon nzType="arrow-right" nzTheme="outline"></span></div>
+                <div class="container__link">{{'button.now' | translate | uppercase}} <span nz-icon nzType="arrow-right" nzTheme="outline"></span></div>
             </div>
         </div>
 

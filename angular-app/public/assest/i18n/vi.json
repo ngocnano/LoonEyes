@@ -1,0 +1,61 @@
+{
+  "home": {
+    "pageTitle": "Cảm xúc hùng vĩ sẽ không phai đi"
+  },
+  "count": {
+    "view" : "Lượt xem",
+    "app" : "Đánh giá cao",
+    "project": "Dự án hoàn thiện",
+    "follow" : "Lượt theo dõi"
+  },
+  "ab" : {
+    "title": "Về chúng tôi",
+    "h1" : "Công ty LoonEyes Studio thành lập năm 2022 hoạt động chính trong 3 mảng drone - công nghệ - sản xuất film và games. Hiện tại đang đẩy mạnh phát triển mảng Drone thực hiện rất nhiều các dự án mang tính lịch sử, văn hoá và biểu tượng. ",
+    "h2" : "Đơn vị tiên phong trong đầu tư và ứng dụng các công nghệ tiên tiến của máy bay không người lái ( Drone ) vào quảng cáo và truyền thông",
+    "t1": "Sở hữu số lượng thiết bị lớn nhất mặt tại Việt Nam",
+    "t2": "Công nghệ tiên tiến nhất trong lĩnh vực Drone",
+    "t3": "Đội ngũ nhân sự giàu kinh nghiệm"
+  },
+"service": {
+  "title": "Dịch vụ",
+  "h" : "Loon Eyes Cung cấp"
+},
+"project" : {
+  "title" : "Dự án",
+  "h" : "Các  dự án tiêu biểu",
+  "cus": "Khách hàng",
+  "time": "Thời gian",
+  "num" : "Số lượng thiết bị",
+  "loc": "Địa điểm",
+  "d": "Dự án khác"
+
+},
+
+  "button": {
+    "start" : "Bắt đầu dự án",
+    "more" : "Xem thêm",
+    "now" : "Xem ngay"
+  },
+  "our" : {
+    "h1": "Đội ngũ Loon Eyes"
+  },
+  "start": {
+    "h" : "Sẵn sàng viết câu chuyện của bạn lên bầu trời",
+    "t" : "Hãy liên lạc với chúng tôi để nhận được các phương án trình diễn và quảng cáo cho thương hiệu của bạn"
+  },
+  "app": {
+    "title": "Đánh giá",
+    "h" : "Khách hàng nói gì về chúng tôi"
+  },
+  "menu": {
+    "ab": "Về chúng tôi",
+    "service": "Dịch vụ",
+    "project": "Dự án",
+    "new": "Tin tức",
+    "contact": "Liên hệ"
+  },
+  "new" : {
+    "title": "Tin tức",
+    "new" : "Tin tức mới"
+  }
+}

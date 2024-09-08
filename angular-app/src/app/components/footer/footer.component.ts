@@ -4,11 +4,12 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { CommonServiceService } from '../../services/common-service.service';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NzGridModule, NzCollapseModule, NzIconModule, NzIconModule],
+  imports: [NzGridModule, NzCollapseModule, NzIconModule, NzIconModule, TranslateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

@@ -12,6 +12,7 @@ import { SIZE_TYPE } from '../../services/constan';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-detail',
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
     YtPlayerComponent,
     NzCarouselModule,
     NzFlexModule,
+    TranslateModule,
     CommonModule
   ],
   templateUrl: './project-detail.component.html',

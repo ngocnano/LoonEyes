@@ -1,11 +1,11 @@
 <div class="main">
     <div nz-row class="title_text" [nzGutter]="[60,60]">
         <div nz-col nzLg="16">
-            <div class="title">Dịch vụ</div>
-            <div class="title_main">Loon Eyes Cung cấp</div>
+            <div class="title">{{"service.title" | translate}}</div>
+            <div class="title_main">{{"service.h" | translate}}</div>
         </div>
         <div nz-col nzLg="8" class="title_btn w100" nz-flex [nzJustify]="'flex-end'">
-            <button class="btn" (click)="change()">Xem thêm</button>
+            <button class="btn" (click)="change()">{{"button.more" | translate}}</button>
         </div>
     </div>
 

@@ -8,6 +8,7 @@ import { CommonServiceService } from '../../services/common-service.service';
 import { SIZE_TYPE } from '../../services/constan';
 import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { ProjectService } from '../project/project.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-detail',
@@ -16,6 +17,7 @@ import { ProjectService } from '../project/project.service';
     NzGridModule,
     YtPlayerComponent,
     NzCarouselModule,
+    TranslateModule,
     NzFlexModule],
   templateUrl: './new-detail.component.html',
   styleUrl: './new-detail.component.scss'

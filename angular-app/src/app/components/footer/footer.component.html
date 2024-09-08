@@ -30,7 +30,7 @@
       @for (panel of menu; track panel) {
       <div class="ct" (click)="changeRouter(panel.url)">
         <span nz-icon nzType="right" nzTheme="outline"></span>
-        <a class="ct_text">{{ panel.title }}</a>
+        <a class="ct_text">{{ panel.title | translate }}</a>
       </div>
 
       }

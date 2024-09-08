@@ -10,12 +10,14 @@ import { StartComponent } from "../../start/start.component";
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonServiceService } from '../../../services/common-service.service';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-project',
   standalone: true,
   providers: [ProjectService],
-  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, StartComponent, NzAffixModule],
+  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, 
+    StartComponent, NzAffixModule, TranslateModule],
   templateUrl: './all-project.component.html',
   styleUrl: './all-project.component.scss'
 })

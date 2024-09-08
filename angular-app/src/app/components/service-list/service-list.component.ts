@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { ProjectService } from './../project/project.service';
@@ -17,6 +19,8 @@ import { CommonServiceService } from '../../services/common-service.service';
     NzGridModule,
     NzIconModule,
     StartComponent,
+    TranslateModule,
+    CommonModule
   ],
   templateUrl: './service-list.component.html',
   styleUrl: './service-list.component.scss',

@@ -5,7 +5,7 @@
         <nz-list nzBordered>
             @for (item of menu; track item) {
               <nz-list-item (click)="changePage(item)">
-                <span nz-typography [class]="curUrl == item.url ? 'title_menu_check w100' : 'title_menu w100'">{{ item.title }}</span>
+                <span nz-typography [class]="curUrl == item.url ? 'title_menu_check w100' : 'title_menu w100'">{{ item.title | translate }}</span>
               </nz-list-item>
             }
           </nz-list>

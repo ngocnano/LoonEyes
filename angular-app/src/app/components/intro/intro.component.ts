@@ -10,6 +10,8 @@ import { StartComponent } from '../start/start.component';
 import { CustomerComponent } from '../customer/customer.component';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-intro',
@@ -24,6 +26,8 @@ import { Router } from '@angular/router';
     StartComponent,
     CustomerComponent,
     NzAffixModule,
+    CommonModule,
+    TranslateModule
   ],
   templateUrl: './intro.component.html',
   styleUrl: './intro.component.css',

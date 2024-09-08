@@ -11,12 +11,14 @@ import { YoutubePlayerComponent } from 'ngx-youtube-player';
 import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new',
   standalone: true,
   imports: [NzGridModule, NzCarouselModule, NzFlexModule, NzAffixModule, YtPlayerComponent, 
-    NzIconModule, NzTagModule],
+    NzIconModule, NzTagModule, CommonModule, TranslateModule],
   templateUrl: './new.component.html',
   styleUrl: './new.component.scss',
 })

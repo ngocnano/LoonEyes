@@ -1,4 +1,4 @@
-<nz-affix [nzOffsetTop]="10">
+<!-- <nz-affix [nzOffsetTop]="10">
   <div class="aff_c w100">
       <div class="aff">
           <div (click)="changeTo()">
@@ -13,7 +13,7 @@
         </div>
   </div>
 
-</nz-affix>
+</nz-affix> -->
 
 <div class="header">
 
@@ -36,7 +36,7 @@
             </div>
             <div nz-col nzSpan="12" class="ct_m">
                 <div class="ct">
-                    <div class="title_x">DỊCH VỤ</div>
+                    <div class="title_x">{{"service.title" | translate | uppercase}}</div>
                     <div class="title_name">{{item.name}}</div>
                     <div class="title_text">{{item.des}}</div>
                     <div class="button" style="padding-top: 50px;">
@@ -52,12 +52,12 @@
 
             <div nz-col nzSpan="12" class="ct_m">
                 <div class="ct">
-                    <div class="title_x">DỊCH VỤ</div>
+                    <div class="title_x">{{"service.title" | translate | uppercase}}</div>
                     <div class="title_name">{{item.name}}</div>
                     <div class="title_text">{{item.des}}</div>
                     <div class="button" style="padding-top: 50px;">
                         <button class="drone_button" (click)="changeToProject()">
-                          Bắt đầu dự án
+                          {{"button.start" | translate}}
                         </button>
                       </div>
                 </div>

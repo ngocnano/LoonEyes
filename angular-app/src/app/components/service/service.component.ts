@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { ProjectService } from '../project/project.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-service',
   standalone: true,
-  imports: [NzGridModule, NzFlexModule],
+  imports: [NzGridModule, NzFlexModule, TranslateModule],
   templateUrl: './service.component.html',
   styleUrl: './service.component.css',
 })

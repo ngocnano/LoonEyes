@@ -1,0 +1,61 @@
+{
+  "home": {
+  "pageTitle": "The majestic feeling will not fade away"
+  },
+  "count": {
+  "view" : "Views",
+  "app" : "Highly appreciated",
+  "project": "Completed project",
+  "follow" : "Following"
+  },
+  "ab" : {
+  "title": "About us",
+  "h1" : "LoonEyes Studio Company was established in 2022, operating mainly in 3 areas: drone - technology - film and game production. Currently, it is promoting the development of the Drone sector to carry out many historical, cultural and symbolic projects. ",
+  "h2" : "Pioneer in investing and applying advanced technologies of unmanned aircraft (Drone) in advertising and communication",
+  "t1": "Owning the largest number of devices in Vietnam",
+  "t2": "The most advanced technology in Drone field",
+  "t3": "Experienced staff"
+  },
+  "service": {
+  "title": "Service",
+  "h": "Loon Eyes Provides"
+  },
+  "project": {
+  "title": "Project",
+  "h": "Representative projects",
+  "cus": "Customer",
+  "time": "Time",
+  "num": "Number of equipment",
+  "loc": "Location",
+  "d": "Other projects"
+  
+  },
+  
+  "button": {
+  "start": "Start project",
+  "more": "See more",
+  "now": "See now"
+  },
+  "our": {
+  "h1": "Loon Eyes Team"
+  },
+  "start": {
+  "h": "Ready to write your story in the sky",
+  "t": "Contact us for options showcase and promote your brand"
+  },
+  "app": {
+  "title": "Reviews",
+  "h" : "What our customers say about us"
+  },
+  "menu": {
+  "ab": "About us",
+  "service": "Services",
+  "project": "Project",
+  "new": "News",
+  "contact": "Contact"
+  },
+  "new" : {
+  "title": "News",
+  "new" : "New news"
+  }
+  }

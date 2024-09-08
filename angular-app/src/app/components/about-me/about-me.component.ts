@@ -4,11 +4,12 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { YoutubePlayerComponent } from 'ngx-youtube-player';
 import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [NzGridModule, YtPlayerComponent, NzDividerModule],
+  imports: [NzGridModule, YtPlayerComponent, NzDividerModule, TranslateModule],
   animations: [
     trigger('divStage', [])
   ],

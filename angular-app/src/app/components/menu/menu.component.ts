@@ -10,11 +10,12 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { filter } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NzLayoutModule, NzMenuModule, NzListModule, NzRadioModule, FormsModule, NzIconModule ],
+  imports: [NzLayoutModule, NzMenuModule, NzListModule, NzRadioModule, FormsModule, NzIconModule, TranslateModule ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })

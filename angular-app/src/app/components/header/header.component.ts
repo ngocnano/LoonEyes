@@ -14,6 +14,7 @@ import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAnchorModule } from 'ng-zorro-antd/anchor';
 import { MenuComponent } from '../menu/menu.component';
 import { CommonServiceService } from '../../services/common-service.service';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -30,6 +31,8 @@ import { CommonServiceService } from '../../services/common-service.service';
     MenuComponent,
     NzModalModule,
     NzAffixModule,
+    NzIconModule,
+    TranslateModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -42,7 +45,8 @@ export class HeaderComponent implements OnInit {
     private modal: NzModalService,
     private commonServiceService: CommonServiceService,
     private router: Router,
-    private scrollService: ScrollService
+    private scrollService: ScrollService,
+    public translate: TranslateService
   ) {
     commonServiceService.menu.subscribe(item => {
       this.menu = item;

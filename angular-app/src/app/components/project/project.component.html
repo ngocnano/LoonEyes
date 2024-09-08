@@ -1,11 +1,11 @@
 <div class="main project">
     <div nz-row class="title_text" [nzGutter]="[60,60]">
         <div nz-col nzLg="16">
-            <div class="title">Dự án</div>
-            <div class="title_main">Các dự án tiêu biểu</div>
+            <div class="title">{{"project.title" | translate}}</div>
+            <div class="title_main">{{"project.h" | translate}}</div>
         </div>
         <div nz-col nzLg="8" class="title_btn w100" nz-flex [nzJustify]="'flex-end'">
-            <button class="btn" (click)="changeList()">Xem thêm</button>
+            <button class="btn" (click)="changeList()">{{"button.more" | translate}}</button>
         </div>
         @defer (on viewport) {
 

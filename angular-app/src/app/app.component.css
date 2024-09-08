@@ -65,4 +65,36 @@
   height: 90px;
 }
 
+.affm {
+  ::ng-deep .ant-affix {
+    background: black !important;
+    z-index: 999;
+  }
+
+  ::ng-deep .ant-btn-primary {
+    border-color: gray;
+    background: gray;
+  }
+}
+
+.select {
+  visibility: hidden;
+}
+
+.wrapper:hover .select {
+  visibility: visible;
+}  
+
+ 
+  .menu {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 99;
+  }
+
+  .i18 {
+    display: flex;
+  }
+
 
