@@ -5,11 +5,12 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { ProjectService } from '../project/project.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-service',
   standalone: true,
-  imports: [NzGridModule, NzFlexModule, TranslateModule],
+  imports: [NzGridModule, NzFlexModule, TranslateModule, CommonModule],
   templateUrl: './service.component.html',
   styleUrl: './service.component.css',
 })
@@ -27,10 +28,10 @@ export class ServiceComponent {
   }
 
   changeToProject(id:any){
-    if(!id){
-      this.router.navigate(["/project"])
-      return
-    }
-    this.router.navigate(["/project", {id:id}])
+    // if(!id || id == 4){
+    //   this.router.navigate(["/project"])
+    //   return
+    // }
+    this.router.navigate(["/service", {id:id}])
 }
 }

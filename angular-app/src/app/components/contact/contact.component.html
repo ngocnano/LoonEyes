@@ -36,16 +36,16 @@
 </div> -->
 
 <div class="main h" nz-row [nzGutter]="[60, 60]">
-  <div class="form" nz-col nzLg="12">
+  <div class="form" nz-col nzLg="12" nzMd="24" nzSm="24">
     <div class="header">
-      <div class="header__title">ĐĂNG KÝ TƯ VẤN BÁO GIÁ</div>
+      <div class="header__title">{{'ct.title' | translate | uppercase}}</div>
       <div class="header__text">
-        Liên hệ ngay với chúng tôi để thực hiện dự án của bạn !
+        {{'ct.h' | translate}}
       </div>
     </div>
     <form nz-form [formGroup]="login_form">
       <nz-form-item>
-        <nz-form-label nzFor="checkPassword">Họ tên</nz-form-label>
+        <nz-form-label nzFor="checkPassword">{{'ct.name' | translate}}</nz-form-label>
         <nz-form-control [nzErrorTip]="errorTpl">
           <input
             nz-input
@@ -73,7 +73,7 @@
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label nzFor="checkPassword">Số điện thoại</nz-form-label>
+        <nz-form-label nzFor="checkPassword">{{'ct.phone' | translate}}</nz-form-label>
         <nz-form-control [nzErrorTip]="errorTpl">
           <input nz-input type="text" formControlName="phoneNumber" />
           <ng-template #errorTpl let-control>
@@ -84,7 +84,7 @@
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label nzFor="checkPassword">Địa chỉ</nz-form-label>
+        <nz-form-label nzFor="checkPassword">{{'ct.add' | translate}}</nz-form-label>
         <nz-form-control [nzErrorTip]="errorTpl">
           <input nz-input type="text" formControlName="address" />
           <ng-template #errorTpl let-control>
@@ -95,7 +95,7 @@
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label nzFor="checkPassword">Thông tin dự án</nz-form-label>
+        <nz-form-label nzFor="checkPassword">{{'ct.pi' | translate}}</nz-form-label>
         <nz-form-control [nzErrorTip]="errorTpl">
           <input nz-input type="text" formControlName="projectInfo" />
           <ng-template #errorTpl let-control>
@@ -118,7 +118,7 @@
           <span nz-icon nzType="inbox"></span>
         </p>
       </nz-upload>
-      <button class="btn b"  (click)="save()">Đăng ký</button>
+      <button class="btn b"  (click)="save()">{{'button.r' | translate}}</button>
       <!-- <div
         nz-col
         nzLg="8"
@@ -129,7 +129,7 @@
     </div>
   </div>
 
-  <div class="map" nz-col nzLg="12">
+  <div class="map" nz-col nzLg="12" nzMd="24" nzSm="24">
     <div *ngIf="apiLoaded | async">
       <google-map [options]="options" (mapClick)="addMarker($event)">
         <map-marker
@@ -143,15 +143,15 @@
     <div class="map_f">
       <div class="map_f1">
         <div class="map_f__title"><span nz-icon nzType="phone" nzTheme="outline"></span> PHONE</div>
-        <div class="map_f__text">0978345338</div>
+        <div class="map_f__text">0904 548 088</div>
       </div>
       <div class="map_f1">
-        <div class="map_f__title">FAX</div>
-        <div class="map_f__text">03 5432 1234</div>
+        <div class="map_f__title"></div>
+        <div class="map_f__text"></div>
       </div>
       <div class="map_f1">
         <div class="map_f__title">EMAIL</div>
-        <div class="map_f__text">info&#64;marcc.com.au</div>
+        <div class="map_f__text">looneyess&#64;gmail.com</div>
       </div>
     </div>
   </div>

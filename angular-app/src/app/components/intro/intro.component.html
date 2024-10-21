@@ -26,7 +26,10 @@
 
   </nz-affix> -->
 
-  <app-yt-player [videoID]="id" [isAutoPlay]="true"></app-yt-player>
+  <video width="100%" height="100%" controls>
+    <source src="https://firebasestorage.googleapis.com/v0/b/app-drone-da32e.appspot.com/o/intro%2FDrone_INTRO.mp4?alt=media&token=9710d4e7-39fb-47ed-a349-abaefaa573c4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
   <div class="main">
     <div class="it_title">{{'ab.title' | translate | uppercase}}</div>
@@ -56,7 +59,11 @@
   </div>
 
 
-  @defer (on viewport) {
+  <app-logo id="app-about-me" class="scrollable"></app-logo>
+  <app-our-team id="app-our-team" class="scrollable"></app-our-team>
+
+
+  <!-- @defer (on viewport) {
   <app-logo id="app-about-me" class="scrollable"></app-logo>
   } @placeholder {
   <p></p>
@@ -64,7 +71,8 @@
   <app-our-team id="app-our-team" class="scrollable"></app-our-team>
   } @placeholder {
   <p></p>
-  } @defer (on viewport) {
+  } -->
+   @defer (on viewport) {
   <app-start id="app-start" class="scrollable"></app-start>
   } @placeholder {
   <p></p>

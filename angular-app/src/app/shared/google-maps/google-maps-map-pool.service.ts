@@ -19,7 +19,7 @@ export class GoogleMapsMapPoolService {
     options?: any
   ): Observable<GoogleMapsMapPoolItem> {
     return defer(() => {
-      let googleMap: GoogleMapsMapPoolItem;
+      let googleMap: any;
       this.ngZone.runOutsideAngular(() => {
         googleMap = this.createMap(hostElement, options);
       });

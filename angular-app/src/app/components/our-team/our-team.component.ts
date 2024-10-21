@@ -10,18 +10,23 @@ import { SIZE_TYPE } from '../../services/constan';
 import { HighlightDirective } from '../../pipe/img-our.directive';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { TranslateModule } from '@ngx-translate/core';
+import { CardSliderDirective } from '../../pipe/card-slider.directive';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { MyHammerConfig } from '../../app.config';
 
 @Component({
   selector: 'app-our-team',
   standalone: true,
-  imports: [NzGridModule, NzCarouselModule, HighlightDirective, NzFlexModule, TranslateModule],
+  imports: [NzGridModule, NzCarouselModule, HighlightDirective, NzFlexModule, TranslateModule, CardSliderDirective],
   templateUrl: './our-team.component.html',
-  styleUrl: './our-team.component.css',
+  styleUrl: './our-team.component.scss',
+  providers : []
 })
 export class OurTeamComponent implements OnInit {
   @ViewChild(NzCarouselComponent, { static: false })
   myCarousel!: NzCarouselComponent;
-  nzSpan = 6
+  nzSpan = 6;
+  cards: string[] = ['#00e676', '#e91e63', '#2196f3', '#009688', '#f44336']
   goToNextPage() {
     let nextPage = this.currentPage + 1;
     if (nextPage > this.total) {
@@ -42,17 +47,17 @@ export class OurTeamComponent implements OnInit {
   ngOnInit(): void {
     this.commonService.mediaBreakpoint$.subscribe(size => {
       if ([SIZE_TYPE.XXL].includes(size)) {
-      this.refresh(3);
-      this.nzSpan = 8
+      this.refresh(4);
+      this.nzSpan = 6
     } else if ([SIZE_TYPE.XL].includes(this.commonService.size)) {
-      this.refresh(3);
-      this.nzSpan = 8
+      this.refresh(4);
+      this.nzSpan = 6
     } else if ([SIZE_TYPE.MD, SIZE_TYPE.LG].includes(this.commonService.size)) {
       this.refresh(3);
       this.nzSpan = 8
     } else {
-      this.refresh(2);
-      this.nzSpan = 12
+      this.refresh(1);
+      this.nzSpan = 24
     }
   })
 }

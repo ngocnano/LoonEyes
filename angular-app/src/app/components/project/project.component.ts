@@ -4,14 +4,14 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { ProjectService } from './project.service';
-import { NgTemplateOutlet } from '@angular/common';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { CommonServiceService } from '../../services/common-service.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [NzGridModule, NzFlexModule, NzCardModule, NgTemplateOutlet, TranslateModule ],
+  imports: [NzGridModule, NzFlexModule, NzCardModule, NgTemplateOutlet, TranslateModule, CommonModule ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
 })

@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: Futura;
-  src: url('/assets/font/SFUFuturaRegular.TTF') format("opentype");
+  src: url('/assest/font/SFUFuturaRegular.TTF') format("truetype");
 }
 
 body
 {
-    font-family: 'Helvetica', 'Arial', sans-serif, 'Syne', 'Futura';
+    font-family: 'Futura', 'Helvetica', 'Arial', sans-serif, 'Syne';
     color: #444444;
     font-size: 9pt;
     background-color: #FAFAFA;
@@ -244,7 +244,7 @@ color: #CDCDCD;
 
 @media screen and (max-width: 3000px), (min-width: 3000px) {
   .home_img_child {
-    width: 2549px;
+    max-width: calc(100vw - 100px);
     height: 2261px;
     top: -1000px;
   }
@@ -264,7 +264,7 @@ color: #CDCDCD;
 
 @media only screen and (max-width: 2500px) {
   .home_img_child {
-    width: 2049px;
+    max-width: calc(100vw - 90px);
     height: 1861px;
     top: -900px;
   }
@@ -281,7 +281,7 @@ color: #CDCDCD;
 
 @media only screen and (max-width: 2000px) {
   .home_img_child {
-    width: 1749px;
+    max-width: calc(100vw - 80px);
     height: 1561px;
     top: -800px;
   }
@@ -299,7 +299,7 @@ color: #CDCDCD;
 
 @media only screen and (max-width: 1600px) {
   .home_img_child {
-    width: 1449px;
+    max-width: calc(100vw - 70px);
     height: 1361px;
     top: -750px;
   }
@@ -316,7 +316,7 @@ color: #CDCDCD;
 
 @media only screen and (max-width: 1200px) {
   .home_img_child {
-    width: 1100px;
+    max-width: calc(100vw - 60px);
     height: 1000px;
     top: -500px;
   }
@@ -334,8 +334,30 @@ color: #CDCDCD;
 }
 
 @media only screen and (max-width: 1000px) {
+
+
+
+  app-start {
+    .star__first {
+      padding: 20px !important;
+    }
+    .star_title {
+      width: auto !important;
+    }
+  }
+
+
+  app-project {
+    nz-card {
+      height: auto !important;
+    }
+
+    .v {
+      height: auto !important;
+    }
+  }
   .home_img_child {
-    width: 900px;
+    max-width: calc(100vw - 40px);
     height: 800px;
     top: -400px;
   }
@@ -366,6 +388,203 @@ color: #CDCDCD;
   nz-affix {
     height: 124px;
   }
+
+
+  @media only screen and (max-width: 500px) {
+  
+
+    app-new-detail {
+      .text {
+        font-size: 30px !important;
+      }
+
+      .container_text__title_sub {
+        font-size: 20px !important;
+      }
+
+      .container_main {
+        padding: 20px !important;
+      }
+    }
+
+    app-our-team {
+      .title_card {
+        font-size: 15px !important;
+      }
+
+      .text_card {
+        font-size: 12px !important;
+      }
+    }
+
+    app-intro {
+      .it_text {
+        font-size: 30px !important;
+      }
+    }
+
+
+    app-menu {
+
+      .ant-drawer-body {
+        background: black !important;
+      }
+
+      .ant-list-item {
+        padding: 0px !important;
+      }
+
+      .container {
+        height: auto !important;
+      }
+
+      .title_menu {
+        font-size: 20px !important;
+      }
+      .link_text {
+        font-size: 14px !important;
+      }
+    }
+
+
+
+    .map-container {
+      width: 90vw !important;
+    }
+
+    .drone_button {
+      width: 120px !important;
+      height: 40px !important;
+    }
+
+    app-service {
+      .icon_text {
+        font-size: 20px !important;
+      }
+
+      .text_content {
+        font-size: 14px !important;
+      }
+    }
+
+
+    app-about-me {
+      .about_me_header3 {
+        font-size: 14px !important;
+      }
+      .about_me_content_text {
+        font-size: 14px !important;
+      }
+    }
+
+
+    app-service-list {
+      .text {
+        font-size: 40px !important;
+      }
+
+      .ct {
+        width: auto !important;
+      }
+
+      .title_name {
+        font-size: 30px !important;
+      }
+    }
+
+
+    .img_inner {
+      height: auto !important;
+    }
+
+    .star__first {
+      padding: 15px !important;
+    }
+
+    .container_des {
+      padding: 30px 50px !important;
+    }
+
+    .star_title {
+      width: auto !important;
+    }
+    
+
+    .star_title__text {
+      width: auto !important;
+    }
+
+    .star__image {
+      border-radius: 10px;
+    }
+
+
+    .count_tt {
+      font-size: 90px !important;
+      padding-bottom: 50px !important;
+    }
+
+    .v {
+      height: auto !important;
+    }
+
+    .project {
+      padding: 45px !important;
+    }
+    
+    .btn {
+      width: 100px !important;
+      height: 40px !important;
+    }
+
+    .content_title {
+      font-size: 30px !important;
+    }
+
+    .title_main {
+      font-size: 40px !important;
+    }
+    
+
+    .info_content_number {
+      font-size: 40px !important;
+    }
+
+    .about_me_header2 {
+      font-size: 40px !important;
+    }
+
+    .home_img_child {
+      max-width: calc(100vw - 20px);
+      height: 400px;
+      top: -200px;
+    }
+
+
+    .logo_main {
+      padding-left: 5px; 
+    }
+
+    .logo_main {
+      height: 50px;
+  }
+
+  .wrapper {
+    padding-right: 0px;
+    img {
+      height: 50px;
+    }
+  }
+
+  .main {
+    padding: 15px;
+}
+
+  }  
+
+
+
+  
 
  
 

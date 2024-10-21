@@ -10,9 +10,9 @@ import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { NzCarouselComponent, NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { SIZE_TYPE } from '../../services/constan';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
-import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-detail',
@@ -50,7 +50,8 @@ export class ProjectDetailComponent implements OnInit {
     private router: Router,
     private common: CommonServiceService,
     private route: ActivatedRoute,
-    protected _sanitizer: DomSanitizer
+    protected _sanitizer: DomSanitizer,
+    private translate:TranslateService, private title:Title
   ) {
     this.common.project.subscribe(item => {
       this.projects = [...item]
@@ -61,6 +62,10 @@ export class ProjectDetailComponent implements OnInit {
     } else {
       this.project = this.projects.find((item: any) => item.id === Number(id));
     }
+
+    translate.stream('title.content').subscribe(item => {
+      title.setTitle(this.translate.instant('title.project') + item)
+    })
   }
   ngOnInit(): void {
     this.common.mediaBreakpoint$.subscribe((size) => {
@@ -96,7 +101,7 @@ export class ProjectDetailComponent implements OnInit {
       let index = i * size;
       let to = index + size;
       if (to > this.projects.length - 1) {
-        to = this.projects.length - 1;
+        to = this.projects.length;
       }
       this.showItem.push([...this.projects.slice(index, to)]);
     }

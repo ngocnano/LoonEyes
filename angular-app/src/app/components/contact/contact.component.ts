@@ -1,51 +1,80 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { CommonServiceService } from '../../services/common-service.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { CommonModule } from '@angular/common';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientJsonpModule,
+  HttpClientModule,
+} from '@angular/common/http';
 import { NzUploadChangeParam, NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 const phoneEmailRegex = /^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}))$/;
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, NzGridModule, NzFlexModule, NzFlexModule, NzAffixModule,
-    FormsModule, ReactiveFormsModule, NzFormModule, GoogleMapsModule, HttpClientModule, 
-    HttpClientJsonpModule, NzUploadModule, NzIconModule],
+  imports: [
+    CommonModule,
+    NzGridModule,
+    NzFlexModule,
+    NzFlexModule,
+    NzAffixModule,
+    TranslateModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NzFormModule,
+    GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    NzUploadModule,
+    NzIconModule,
+  ],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrl: './contact.component.scss',
 })
-export class ContactComponent implements OnInit{
-save() {
+export class ContactComponent implements OnInit, AfterViewInit {
+  save() {
+    this.value.push(this.login_form.value);
 
-  this.value.push(this.login_form.value)
-
-  this.common.storeRecipes('email', this.value);
-}
+    this.common.storeRecipes('email', this.value);
+  }
   public markers: any[];
 
-  value:any[] = []
+  value: any[] = [];
 
   apiLoaded: Observable<boolean>;
 
-
-  
   public login_form: FormGroup;
 
-  constructor(private router:Router, private common:CommonServiceService, 
-    private fb: FormBuilder, private httpClient: HttpClient, private msg: NzMessageService){
+  constructor(
+    private router: Router,
+    private common: CommonServiceService,
+    private fb: FormBuilder,
+    private httpClient: HttpClient,
+    private msg: NzMessageService,
+    private translate:TranslateService, private title:Title
+  ) {
     this.markers = [];
-    common.fetchData('email').subscribe(data => {
+    common.fetchData('email').subscribe((data) => {
       this.value = data as any;
-    })
+    });
     this.login_form = fb.group({
       fullName: [null, Validators.required],
       email: [
@@ -57,7 +86,7 @@ save() {
       ],
       phoneNumber: [null, Validators.required],
       address: [null],
-      projectInfo: [null, Validators.required]
+      projectInfo: [null, Validators.required],
     });
 
     this.apiLoaded = httpClient
@@ -66,33 +95,44 @@ save() {
         'callback'
       )
       .pipe(
-        tap(item => console.log),
+        tap((item) => console.log),
         map(() => true),
         catchError(() => of(false))
       );
+
+      translate.stream('title.content').subscribe(item => {
+        title.setTitle(this.translate.instant('title.ct') + item)
+      })
+  }
+  ngAfterViewInit(): void {
+    this.markerPositions.push({
+      lat: 10.807976913907607,
+      lng: 106.70333572406567,
+    });
+    this.markerPositions.push({lat:21.037937981813894, lng:105.79642918007957});
   }
   ngOnInit(): void {
     this.markers.push({
       position: {
-        lat: 40.4381311,
-        lng: -3.8196233
+        lat: 10.807976913907607,
+        lng: 106.70333572406567,
       },
       label: {
-        color: "black",
-        text: "Madrid"
-      }
+        color: 'red',
+        text: 'Madrid',
+      },
     });
 
-    this.markers.push({
-      position: {
-        lat: 48.8615515,
-        lng: 2.3112233
-      },
-      label: {
-        color: "black",
-        text: "Paris"
-      }
-    });
+    // this.markers.push({
+    //   position: {
+    //     lat: 48.8615515,
+    //     lng: 2.3112233
+    //   },
+    //   label: {
+    //     color: "black",
+    //     text: "Paris"
+    //   }
+    // });
   }
 
   openMenu() {
@@ -104,13 +144,13 @@ save() {
 
   options: google.maps.MapOptions = {
     center: {
-      lat: 51.508742,
-      lng: -0.12085,
+      lat: 16.082962,
+      lng: 108.057510,
     },
-    zoom: 4,
+    zoom: 5,
 
     // Before intial load, options complains  "google is not defined"
-    // Uncomment out the options 
+    // Uncomment out the options
     /* 
     zoomControlOptions: {
       style: google.maps.ZoomControlStyle.LARGE,
@@ -130,7 +170,8 @@ save() {
   */
   markerPositions: google.maps.LatLngLiteral[] = [];
 
-  addMarker(event:any) {
+  addMarker(event: any) {
+    console.log(event.latLng.toJSON());
     this.markerPositions.push(event.latLng.toJSON());
   }
 
@@ -145,5 +186,4 @@ save() {
       this.msg.error(`${file.name} file upload failed.`);
     }
   }
-
 }

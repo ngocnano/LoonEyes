@@ -1,4 +1,4 @@
-<div class="h100">
+<div>
   <nz-layout class="container">
     <nz-layout>
       <nz-content class="content_menu menu_main">
@@ -27,16 +27,16 @@
                         <label nz-radio [nzValue]="$index"></label>
                     }
                   </nz-radio-group> -->
-                  @for (item of menu; track item) {
+                  <!-- @for (item of menu; track item) {
                     <div class="menu_icon" [class]="curUrl == item.url ? 'menu_icon menu_icon_selected' : 'menu_icon'"></div>
-                }
+                } -->
             </div>
     
             <div class="radio">
-                <span class="link_text">GIỚI THIỆU</span>
-                <span class="link_text">TEAM</span>
-                <span class="link_text">TUYỂN DỤNG</span>
-                <span class="link_text">LIÊN HỆ</span>
+                <span class="link_text" (click)="changeTo('/intro')">{{'menu.intro' | translate | uppercase}}</span>
+                <span class="link_text" (click)="changeTo('/team', 'app-our-team')">TEAM</span>
+                <span class="link_text" >{{'menu.hr' | translate | uppercase}}</span>
+                <span class="link_text" (click)="changeTo('/contact')">{{'menu.contact' | translate | uppercase}}</span>
             </div>
         </div>
 

@@ -14,20 +14,20 @@
     .icon_text {
     
         font-family: Sora;
-        font-size: 24px;
+        font-size: 30px;
         font-weight: 600;
         line-height: 33.6px;
         text-align: left;
-        
         color: #3665F9;
+        padding-bottom: 50px;
     
     
     }
     
     .text_content {
-        font-family: Sora;
-
-        padding-top: 30px;
+        /* font-family: Sora; */
+        color: white;
+        padding-top: 24px;
         font-size: 18px;
         font-weight: 400;
         line-height: 28.8px;

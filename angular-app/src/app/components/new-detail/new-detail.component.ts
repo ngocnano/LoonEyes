@@ -8,7 +8,8 @@ import { CommonServiceService } from '../../services/common-service.service';
 import { SIZE_TYPE } from '../../services/constan';
 import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { ProjectService } from '../project/project.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-new-detail',
@@ -40,7 +41,8 @@ export class NewDetailComponent {
     private projectService: ProjectService,
     private router: Router,
     private common: CommonServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate:TranslateService, private title:Title
   ) {
     this.common.new.subscribe(item => {
       this.news = [...item]
@@ -53,6 +55,10 @@ export class NewDetailComponent {
       this.project = this.news.find((item: any) => item.id === Number(id));
       console.log(this.project)
     }
+
+    translate.stream('title.content').subscribe(item => {
+      title.setTitle(this.translate.instant('title.new') + item)
+    })
   }
   ngOnInit(): void {
     this.common.mediaBreakpoint$.subscribe((size) => {
@@ -88,7 +94,7 @@ export class NewDetailComponent {
       let index = i * size;
       let to = index + size;
       if (to > this.news.length - 1) {
-        to = this.news.length - 1;
+        to = this.news.length;
       }
       this.showItem.push([...this.news.slice(index, to)]);
     }

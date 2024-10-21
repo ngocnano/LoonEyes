@@ -6,13 +6,11 @@
     </div>
   </div>
   <div nz-col nzLg="8"></div>
-  @for (item of [1,2,3]; track $index) {
+  @for (item of cus; track $index) {
     <div nz-col nzLg="8" >
-      <div class="f w100">
-        <div class="cus w100">
-        <nz-card nzHoverable [nzCover]="coverTemplate" class="card w100">
-
-        </nz-card>
+      <div class="f w100 h100">
+        <div class="cus w100 h100">
+        <ng-container *ngTemplateOutlet="mainTemplate; context: {item : item}"></ng-container>
       </div>
       </div>
     </div>
@@ -20,30 +18,36 @@
 
 </div>
 
-<ng-template #coverTemplate>
-  <div class="cus_main">
-    <div>
-      <nz-avatar
-        style="background-color: #fff"
-        [nzSize]="'large'"
-        nzIcon="user"
-        nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-      ></nz-avatar>
-    </div>
-    <div class="cus_content">
-      <div class="cus_title">“Màn trình diễn drone vô cùng mãn nhãn”</div>
-      <div class="cus_text">
-        Massa malesuada aliquam fames senectus vitae ornare. Fringilla sit
-        varius mattis ultricies sed nulla.
+<ng-template #mainTemplate let-item="item">
+  <nz-card nzHoverable [nzCover]="coverTemplate" class="card w100 h100">
+    <ng-template #coverTemplate>
+      <div class="cus_main h100">
+        <div>
+          <nz-avatar
+          [nzGap]="10"
+  
+            [nzSize]="'large'"
+            nzIcon="user"
+            [nzSrc]="item.cusImg"
+          ></nz-avatar>
+        </div>
+        <div class="cus_content">
+          <div class="cus_title">{{item.title}}</div>
+          <div class="cus_text">
+            {{item.content}}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="cus_footer">
-    <div class="cus_name">
-      James Reynolds
-    </div>
-    <div class="cus_cp">
-Công ty ABC
-    </div>
-  </div>
+      <div class="cus_footer">
+        <div class="cus_name">
+          {{item.cusName}}
+        </div>
+        <div class="cus_cp">
+          {{item.job}}
+        </div>
+      </div>
+    </ng-template>
+  </nz-card>
 </ng-template>
+
+

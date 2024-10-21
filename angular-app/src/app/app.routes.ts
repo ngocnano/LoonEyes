@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { IntroComponent } from './components/intro/intro.component';
 
 
 export const routes: Routes = [
@@ -38,5 +39,9 @@ export const routes: Routes = [
     {
         path: 'update',
         loadComponent: () => import('./components/update/update.component').then(x => x.UpdateComponent)
-    }
+    },
+    {
+        path: 'team',
+        loadComponent: () => import('./components/intro/intro.component').then(x => x.IntroComponent)
+    },
 ];

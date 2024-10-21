@@ -12,7 +12,8 @@ import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-new',
@@ -45,13 +46,18 @@ export class NewComponent {
     private projectService: ProjectService,
     private router: Router,
     private common: CommonServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate:TranslateService, private title:Title
   ) {
     this.common.new.subscribe(item => {
       this.news = [...item]
     })
     this.paging.numPage = (this.news.length / this.paging.size);
     this.changePageMain(0)
+
+    translate.stream('title.content').subscribe(item => {
+      title.setTitle(this.translate.instant('title.new') + item)
+    })
   }
   ngOnInit(): void {
     this.common.mediaBreakpoint$.subscribe((size) => {
@@ -112,7 +118,7 @@ export class NewComponent {
       let index = i * size;
       let to = index + size;
       if (to > this.news.length - 1) {
-        to = this.news.length - 1;
+        to = this.news.length;
       }
       this.showItem.push([...this.news.slice(index, to)]);
     }

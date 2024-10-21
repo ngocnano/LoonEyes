@@ -19,42 +19,103 @@
 
 
       <div class="w100 h100 title">
-        <div class="text">DỊCH VỤ</div>
+        <div class="text">{{'service.title' | translate | uppercase}}</div>
       </div>
 
 
 
 </div>
-<div nz-row [nzGutter]="[30,30]" class="container">
+<div nz-row [nzGutter]="[30,30]" class="main">
     @for (item of services; track $index) {
-        @if ( $index % 2 === 0) {
-            <div nz-col nzSpan="12">
-              <video controls class="w100">
+        <!-- @if ( $index % 2 === 0) { -->
+            <div nz-col nzLg="24" nzMd="24" nzSm="24" [id]="item.id + 'xxxx'">
+              <!-- <video controls class="w100">
                 <source [src]="item.url" type="video/mp4">
                 Your browser does not support HTML5 video.
-              </video>
+              </video> -->
+              <div class="title_name">{{item.translate | translate | uppercase}}</div>
             </div>
-            <div nz-col nzSpan="12" class="ct_m">
+
+
+            @for (child of item.child; track $index) {
+              <div nz-col nzLg="12" nzMd="24" nzSm="24" class="flex_content">
+                <div>
+                <div class="title_text">{{child.title | translate | uppercase}}</div>
+                <div class="border-imaged-element"></div>
+                <div class="child_text">{{child.text}}</div>
+
+                </div> 
+
+                <div class="view_icon"  (click)="changeToProject()">
+                  <span style="font-size: 30px;" nz-icon nzType="play-circle" nzTheme="outline"></span>
+                  <div class="text_view"> {{"project.view" | translate}} </div>
+                </div>
+
+                <div  class="img_pa">
+  
+                  <img class="w100 h100 img_child" [src]="child.img"  />
+                </div>
+              </div>
+
+              <!-- @if($index % 2 == 1) {
+                <div nz-col nzLg="12" nzMd="24" nzSm="24">
+  
+                  <img class="w100 h100 img_child" [src]="item.child[$index - 1].img" />
+                </div>
+
+                <div nz-col nzLg="12" nzMd="24" nzSm="24">
+  
+                  <img class="w100 h100 img_child" [src]="item.child[$index].img" />
+                </div>
+              } @else if ($index == item.child.length - 1) {
+                <div nz-col nzLg="12" nzMd="24" nzSm="24">
+                  <div class="img_child"></div>
+                </div>
+                <div nz-col nzLg="12" nzMd="24" nzSm="24">
+  
+                  <img class="w100 h100 img_child" [src]="child.img"  />
+                </div>
+              } -->
+              <!-- @for (child of item.child; track $index) {
+                  
+                <div nz-col nzLg="12" nzMd="24" nzSm="24">
+  
+                  <img class="w100 h100" [src]="child.img" />
+                </div>
+              } -->
+
+            }
+
+
+
+            <!-- <div nz-col nzLg="12" nzMd="24" nzSm="24">
+              <div class="title_text">{{item.title}}</div>
+
+            </div>
+            <div nz-col nzLg="12" nzMd="24" nzSm="24" class="ct_m">
                 <div class="ct">
-                    <div class="title_x">{{"service.title" | translate | uppercase}}</div>
-                    <div class="title_name">{{item.name}}</div>
-                    <div class="title_text">{{item.des}}</div>
+
+
+       
                     <div class="button" style="padding-top: 50px;">
                         <button class="drone_button" (click)="changeToProject()">
-                          Bắt đầu dự án
+                          {{'button.start' | translate}}
                         </button>
                       </div>
                 </div>
 
 
-            </div>
-        } @else {
+            </div> -->
+        <!-- }  -->
+        
+        
+        <!-- @else {
 
-            <div nz-col nzSpan="12" class="ct_m">
+            <div nz-col nzLg="12" nzMd="24" nzSm="24" class="ct_m" [id]="item.id + 'xxxx'">
                 <div class="ct">
                     <div class="title_x">{{"service.title" | translate | uppercase}}</div>
                     <div class="title_name">{{item.name}}</div>
-                    <div class="title_text">{{item.des}}</div>
+                    <div class="title_text">{{item.title}}</div>
                     <div class="button" style="padding-top: 50px;">
                         <button class="drone_button" (click)="changeToProject()">
                           {{"button.start" | translate}}
@@ -62,7 +123,7 @@
                       </div>
                 </div>
             </div>
-            <div nz-col nzSpan="12">
+            <div nz-col nzLg="12" nzMd="24" nzSm="24">
               @if(item.url){
                 <video controls class="w100">
                   <source [src]="item.url" type="video/mp4">
@@ -72,12 +133,10 @@
                 <app-yt-player [videoID]="item.videoId"></app-yt-player>
               }
             </div>
-        }
+        } -->
     }
 </div>  
 
 
- @defer (on viewport) {
+
     <app-start id="app-start" class="scrollable"></app-start>
-    } @placeholder {
-    <p></p> }

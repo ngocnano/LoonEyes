@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { AboutMeComponent } from '../about-me/about-me.component';
 import { HeaderComponent } from '../header/header.component';
 import { LogoComponent } from '../logo/logo.component';
@@ -11,19 +11,25 @@ import { NzAnchorModule } from 'ng-zorro-antd/anchor';
 import { CommonServiceService } from '../../services/common-service.service';
 import { StartComponent } from '../start/start.component';
 import { CustomerComponent } from '../customer/customer.component';
+import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, AboutMeComponent, LogoComponent, NzBackTopModule, NzAffixModule,
+  imports: [HeaderComponent, AboutMeComponent, LogoComponent, NzBackTopModule, NzAffixModule, TranslateModule,
     ServiceComponent, ProjectComponent, OurTeamComponent, NzAnchorModule, StartComponent, CustomerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit{
 
-  constructor(public comon:CommonServiceService){
-
+  constructor(public comon:CommonServiceService,   private route: ActivatedRoute, private translate:TranslateService, private title:Title){
+    translate.stream('title.content').subscribe(item => {
+      title.setTitle( "looneyesstudio.com - " + this.translate.instant('title.home') + item)
+    })
+    // title.setTitle(this.translate.stream('title.home') + this.translate.stream('title.content'))
   }
 
   @ViewChild(HeaderComponent, {static:false}) header!: HeaderComponent;
@@ -31,6 +37,7 @@ export class HomeComponent implements AfterViewInit{
 
 
   ngAfterViewInit() {
+    console.log(this.translate.stream('count.view'))
     // @ts-ignore
     // window.addEventListener('scroll', this.getValue);
   }

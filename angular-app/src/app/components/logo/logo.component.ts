@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonServiceService } from '../../services/common-service.service';
 
 @Component({
   selector: 'app-logo',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './logo.component.css'
 })
 export class LogoComponent {
+
+  logo:any[] = []
+  constructor(private common: CommonServiceService){
+    common.logo.subscribe(logo => {
+      this.logo = logo;
+    })
+  }
 
 }

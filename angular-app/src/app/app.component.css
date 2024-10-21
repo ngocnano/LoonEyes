@@ -74,6 +74,11 @@
   ::ng-deep .ant-btn-primary {
     border-color: gray;
     background: gray;
+    border-left-color: gray;
+  }
+
+  ::ng-deep .ant-btn-group .ant-btn-primary:last-child:not(:first-child), .ant-btn-group .ant-btn-primary + .ant-btn-primary {
+    border-left-color: gray;
   }
 }
 

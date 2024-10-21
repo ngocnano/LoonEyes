@@ -7,7 +7,6 @@
         <div nz-col nzLg="8" class="title_btn w100" nz-flex [nzJustify]="'flex-end'">
             <button class="btn" (click)="changeList()">{{"button.more" | translate}}</button>
         </div>
-        @defer (on viewport) {
 
             <div nz-row class="ct" [nzGutter]="[60,60]">
                 @for (item of project; track $index) {
@@ -27,7 +26,7 @@
                 height: 100%;
                 justify-content: space-between;
                 flex-direction: column;">
-                    <nz-card-meta [nzTitle]="item.name"></nz-card-meta>
+                    <nz-card-meta [nzTitle]="item.name | uppercase"></nz-card-meta>
                   </nz-card>
                   <ng-template #coverTemplate >
 
@@ -35,11 +34,6 @@
                     
                   </ng-template>
             </ng-template>
-
-        
-        } @placeholder {
-            <p></p>
-        }
     </div>
 
 

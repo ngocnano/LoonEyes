@@ -25,7 +25,7 @@
         <span nz-icon nzType="youtube" nzTheme="fill" (click)="goToLink('https://www.youtube.com/@LoonEyesStudio.162')"></span>
       </div>
     </div>
-    <div class="navigator" nz-col nzLg="6">
+    <div class="navigator" nz-col nzLg="6" nzMd="12">
       <div class="ct_title">NAVIGATOR</div>
       @for (panel of menu; track panel) {
       <div class="ct" (click)="changeRouter(panel.url)">
@@ -35,7 +35,7 @@
 
       }
     </div>
-    <div class="contact_value" nz-col nzLg="6">
+    <div class="contact_value" nz-col nzLg="6" nzMd="12">
       <div class="ct_title">CONTACT</div>
 
       @for (panel of ct; track panel) {

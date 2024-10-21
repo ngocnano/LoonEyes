@@ -6,7 +6,7 @@
 }
 
 .project_name {
-  font-family: Futura;
+  font-family: Futura !important;
     font-size: 40px;
     font-weight: 700;
     line-height: 48px;
@@ -75,6 +75,16 @@
     font-weight: 400;
     line-height: 24px;
     text-align: left;
+    color: #ffffff;
+  }
+
+  &__text_content {
+    //styleName: Body-base/regular;
+    font-family: Futura;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
     color: #ffffff;
   }
 }

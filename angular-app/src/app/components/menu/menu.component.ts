@@ -15,7 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NzLayoutModule, NzMenuModule, NzListModule, NzRadioModule, FormsModule, NzIconModule, TranslateModule ],
+  imports: [NzLayoutModule, NzMenuModule, NzListModule, NzRadioModule, FormsModule, NzIconModule,
+     TranslateModule, CommonModule ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
@@ -43,6 +44,11 @@ export class MenuComponent implements OnInit {
   changePage(_t16: any) {
     this.router.navigateByUrl(_t16.url).then(() => this.commonServiceService.close())
   }
+
+  changeTo(url: any, param?: string) {
+    this.router.navigate([url, param ? {id: param} : {}]).then(() => this.commonServiceService.close())
+  }
+
 
   goToLink(url: string){
     window.open(url, "_blank");

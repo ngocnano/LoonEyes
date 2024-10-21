@@ -1,16 +1,16 @@
 <div class="main w100">
     <div class="w100 star">
         <div class="w100 star__first" nz-row>
-            <div nz-col nzSpan="16" >
+            <div nz-col nzLg="16" nzMd="24" nzSm="24">
                 <div class="star_title">
                     <span class="star_title__title">{{"start.h" | translate}}</span>
                     <span class="star_title__text">{{"start.t" | translate}}</span>
                 </div>
                 
             </div>
-            <div nz-col nzSpan="8">
+            <div nz-col nzLg="8" nzMd="24" nzSm="24">
                 <div class="button star_btn w100 h100" nz-flex [nzAlign]="'center'" [nzJustify]="'center'">
-                    <button class="drone_button" (click)="changeToProject()">Bắt đầu dự án <span nz-icon nzType="arrow-right" nzTheme="outline"></span></button>
+                    <button class="drone_button" (click)="changeToProject()">{{'button.start' | translate}} <span nz-icon nzType="arrow-right" nzTheme="outline"></span></button>
                   </div>
             </div>
         </div>

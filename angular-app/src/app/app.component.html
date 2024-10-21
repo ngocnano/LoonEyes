@@ -9,21 +9,22 @@
   
     <div class="wrapper">
         <img src="/assest/image/menu.png" (click)="openMenu()">
-        <div class="i18">
-          <button nz-button nzType="primary" (click)="changeLang()">
+        <nz-button-group>
+          <button nz-button nzType="primary">
             <span nz-icon nzType="global"></span>
-            {{currentLangnge}}
           </button>
-          <!-- <span nz-icon nzType="global" nzTheme="outline"></span>
-          <select #langSelect (change)="translate.use(langSelect.value)">
-            @for (lang of translate.getLangs(); track $index) {
-              <option  [value]="lang" [selected]="lang === translate.currentLang">
-                  {{ lang }}
-                </option>
-            }
-          </select> -->
+          <button nzType="primary" nz-button nz-dropdown [nzDropdownMenu]="menu2" nzPlacement="bottomCenter">
+            {{translate.currentLang | uppercase}} <span nz-icon nzType="caret-down" nzTheme="outline"></span></button>
+          <nz-dropdown-menu #menu2="nzDropdownMenu">
+            <ul nz-menu>
+              @for (lang of translate.getLangs(); track $index) {
+                <li nz-menu-item (click)="changeLang(lang)">{{ lang | uppercase }} </li>
+              }
+  
+            </ul>
+          </nz-dropdown-menu>
+        </nz-button-group>
 
-        </div>
     
       </div>
 </div>
@@ -31,7 +32,11 @@
 </nz-affix>
 <div class="app bg">
     <router-outlet></router-outlet>
-    <app-footer id="app-footer"></app-footer>
+    @defer (on viewport) {
+      <app-footer id="app-footer"></app-footer>
+    } @placeholder {
+      <p id="app-customer"></p>
+    }
 </div>
 
 <nz-drawer

@@ -19,8 +19,11 @@
                   <div class="card" >
                     <div class="count_tt">{{ "0" + ($index + 1) }}</div>
                     <div (click)="changeToProject(item.id)" style="padding-bottom: 25px;"><img src="/assest/icon/t.svg"> </div>
-                    <div class="icon_text">{{ item.name }}</div>
-                    <div class="text_content">{{ item.title }}</div>
+                    <div class="icon_text">{{ item.translate | translate }}</div>
+                    @for (child of item.child; track $index) {
+                        <div class="text_content">{{child.title | translate | uppercase}}</div>
+                    }
+                    <!-- <div class="text_content">{{ item.title }}</div> -->
                   </div>
                 </div>
                 }

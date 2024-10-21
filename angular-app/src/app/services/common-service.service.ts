@@ -9,6 +9,8 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class CommonServiceService implements OnDestroy {
 
+
+  public baseHader = ' - LoonEyes | Trình diễn ánh sáng nghệ thuật bằng thiết bị bay không người lái đầu tiên tại Việt Nam'
   private _unsubscriber$: Subject<any> = new Subject();
   public screenWidth$: BehaviorSubject<any> = new BehaviorSubject(null);
   public mediaBreakpoint$: BehaviorSubject<any> = new BehaviorSubject(null);
@@ -31,6 +33,10 @@ export class CommonServiceService implements OnDestroy {
 
   team = new BehaviorSubject([])
 
+  cus = new BehaviorSubject([])
+
+  logo = new BehaviorSubject([])
+
   constructor(private http: HttpClient, private message: NzMessageService) {
     this.fetchRecipes('menu', this.menu) as any;
     this.fetchRecipes('new', this.new) as any;
@@ -39,6 +45,8 @@ export class CommonServiceService implements OnDestroy {
     this.fetchRecipes('type', this.type) as any;
     this.fetchRecipes('project', this.project) as any;
     this.fetchRecipes('team', this.team) as any;
+    this.fetchRecipes('cus', this.cus) as any;
+    this.fetchRecipes('logo', this.logo) as any;
 
     this.init();
   }

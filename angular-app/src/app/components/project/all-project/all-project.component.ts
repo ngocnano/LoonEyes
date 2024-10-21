@@ -10,13 +10,15 @@ import { StartComponent } from "../../start/start.component";
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonServiceService } from '../../../services/common-service.service';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-project',
   standalone: true,
   providers: [ProjectService],
-  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, 
+  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, CommonModule, 
     StartComponent, NzAffixModule, TranslateModule],
   templateUrl: './all-project.component.html',
   styleUrl: './all-project.component.scss'
@@ -26,7 +28,7 @@ export class AllProjectComponent implements OnInit{
 
 changeType(_t19: { id: null; name: string; }|{ id: number; name: string; }) {
   this.typeId = _t19.id;
-  if(this.typeId === null){
+  if(!this.typeId){
     this.listProjectDateFilter = [...this.listProject];
   } else {
     this.listProjectDateFilter = this.listProject.filter((item:any) => item.type === this.typeId);
@@ -37,8 +39,8 @@ changeType(_t19: { id: null; name: string; }|{ id: number; name: string; }) {
 
 }
 
-  listProject:any;
-  listType:any;
+  listProject:any = [];
+  listType:any = [];
   listProjectTmp:any[] = [];
   listProjectDateFilter:any[] = [];
   typeId: number | null | undefined
@@ -48,7 +50,9 @@ changeType(_t19: { id: null; name: string; }|{ id: number; name: string; }) {
     size: 6
   }
 
-constructor(private projectService:ProjectService, private route:ActivatedRoute, private router:Router, private common:CommonServiceService){
+constructor(private projectService:ProjectService, private route:ActivatedRoute, 
+  private router:Router, private common:CommonServiceService,
+  private translate:TranslateService, private title:Title){
   this.common.project.subscribe(data => {
     this.listProject = data;
     this.listProjectDateFilter = [...this.listProject];
@@ -63,6 +67,11 @@ constructor(private projectService:ProjectService, private route:ActivatedRoute,
     this.paging.numPage = (this.listProject.length / this.paging.size);
     this.typeId = this.listType[0].id
     this.changePage(0);
+  })
+
+
+  translate.stream('title.content').subscribe(item => {
+    title.setTitle(this.translate.instant('title.project') + item)
   })
 
 }
