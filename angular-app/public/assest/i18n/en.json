@@ -1,4 +1,22 @@
 {
+
+  "type" : {
+    "all" : "All",
+    "nt" : "OUTDOOR DRONE",
+    "tn" : "INTERNAL DRONE",
+    "fg": "FILM GAME"
+  },
+
+
+  "title" : {
+    "content": " - LoonEyes The first light art performance using non-driver equipment in Vietnam",
+    "home": "Home",
+    "ab": "About us",
+    "project": "Project",
+    "new": "News",
+    "ct": "Contact",
+    "service": "Services"
+  },
   "home": {
   "pageTitle": "The majestic feeling will not fade away"
   },
@@ -34,7 +52,8 @@
   "button": {
   "start": "Start project",
   "more": "See more",
-  "now": "See now"
+  "now": "See now",
+  "r": "Register"
   },
   "our": {
   "h1": "Loon Eyes Team"
@@ -57,5 +76,14 @@
   "new" : {
   "title": "News",
   "new" : "New news"
-  }
+  },
+  "ct" : {
+"title": "REGISTER FOR QUOTATION CONSULTATION",
+"h": "Contact us now to carry out your project!",
+"name": "Full name",
+"mail": "Email",
+"phone": "Phone number",
+"add": "Address",
+"pi" : "Project information"
+}
   }

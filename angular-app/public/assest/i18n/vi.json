@@ -1,4 +1,22 @@
 {
+
+  "type" : {
+    "all" : "Tất cả",
+    "nt" : "DRONE NGOÀI TRỜI",
+    "tn" : "DRONE TRONG NHÀ",
+    "fg": "FILM GAME"
+  },
+
+
+  "title" : {
+    "content": " - LoonEyes Trình diễn ánh sáng nghệ thuật bằng thiết bị bay không người lái đầu tiên tại Việt Nam",
+    "home": "Trang chủ",
+    "ab": "Về chúng tôi",
+    "project": "Dự án",
+    "new": "Tin tức",
+    "ct": "Liên hệ",
+    "service": "Dịch vụ"
+  },
   "home": {
     "pageTitle": "Cảm xúc hùng vĩ sẽ không phai đi"
   },
@@ -34,7 +52,8 @@
   "button": {
     "start" : "Bắt đầu dự án",
     "more" : "Xem thêm",
-    "now" : "Xem ngay"
+    "now" : "Xem ngay",
+    "r": "Đăng ký"
   },
   "our" : {
     "h1": "Đội ngũ Loon Eyes"
@@ -52,10 +71,22 @@
     "service": "Dịch vụ",
     "project": "Dự án",
     "new": "Tin tức",
-    "contact": "Liên hệ"
+    "contact": "Liên hệ",
+    "intro": "Giới thiệu",
+    "hr": "Tuyển dụng"
+
   },
   "new" : {
     "title": "Tin tức",
     "new" : "Tin tức mới"
+  },
+  "ct" : {
+    "title": "ĐĂNG KÝ TƯ VẤN BÁO GIÁ",
+    "h": "Liên hệ ngay với chúng tôi để thực hiện dự án của bạn !",
+    "name": "Họ tên",
+    "mail": "Email",
+    "phone": "Số điện thoại",
+    "add": "Địa chỉ",
+    "pi" : "Thông tin dự án"
   }
 }

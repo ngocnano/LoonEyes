@@ -33,11 +33,11 @@ export class AppComponent implements OnInit {
     private common: CommonServiceService,
     private router: Router,
     public translate: TranslateService){
-      this.translate.addLangs(['en', 'vi', 'cn']);
+      this.translate.addLangs(['en', 'vi', 'cn', 'jp']);
       this.translate.setDefaultLang('vi');
   
       const browserLang:any = this.translate.getBrowserLang();
-      this.translate.use(browserLang.match(/en|cn|vi/) ? browserLang : 'en');
+      this.translate.use(browserLang.match(/en|cn|vi|jp/) ? browserLang : 'en');
       this.currentLangnge = this.translate.getLangs().find(item => item !== this.translate.currentLang)
   }
   ngOnInit(): void {
