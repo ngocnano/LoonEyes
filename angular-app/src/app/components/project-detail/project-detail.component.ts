@@ -53,7 +53,7 @@ export class ProjectDetailComponent implements OnInit {
     protected _sanitizer: DomSanitizer,
     private translate:TranslateService, private title:Title
   ) {
-    this.common.project.subscribe(item => {
+    this.common.project.subscribe((item:any) => {
       this.projects = [...item]
     })
     const id = this.route.snapshot.params['id'];

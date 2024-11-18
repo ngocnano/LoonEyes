@@ -29,7 +29,7 @@
 
 <div class="main" nz-row [nzGutter]="[100,100]">
     
-    @for (item of new; track $index) {
+    @for (item of new; track item) {
         <div nz-col nzLg="12" nzSm="24" nzXs="24" class="container" (click)="changeToNewDetail(item.id)">
             <div class="container__header">
                 <div class="container__header__title">{{item.title}}</div>

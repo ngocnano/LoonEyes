@@ -14,3 +14,19 @@ export const SIZE_TYPE = {
     XL : 'xl',
     XXL : 'xxl'
 }
+
+export interface Content {
+   vi: ContentDetail,
+   cn: ContentDetail,
+   en: ContentDetail,
+   jp: ContentDetail
+}
+
+export interface ContentDetail {
+    project: any[],
+    new: any[],
+    team: any[],
+    type: any[],
+    cus: any[],
+    intro: any[],
+}

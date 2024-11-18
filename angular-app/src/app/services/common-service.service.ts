@@ -1,8 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject, debounceTime, forkJoin, fromEvent, map, takeUntil } from 'rxjs';
-import { SIZE_TYPE } from './constan';
+import { Content, ContentDetail, SIZE_TYPE } from './constan';
 import { HttpClient } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -17,38 +18,58 @@ export class CommonServiceService implements OnDestroy {
   public menuChange: BehaviorSubject<any> = new BehaviorSubject(null);
   public changeMenuVisible: Subject<any> = new Subject();
   public size = '';
+  public content!: Content
 
   menu = new BehaviorSubject([]);
 
   ct = new BehaviorSubject([]);
 
-  intro = new BehaviorSubject([])
+  intro:BehaviorSubject<any> = new BehaviorSubject([])
 
 
-  new = new BehaviorSubject([])
+  new:BehaviorSubject<any> = new BehaviorSubject([])
 
-  type = new BehaviorSubject([])
+  type:BehaviorSubject<any> = new BehaviorSubject([])
 
-  project = new BehaviorSubject([])
+  project:any = new BehaviorSubject([])
 
-  team = new BehaviorSubject([])
+  team:BehaviorSubject<any> = new BehaviorSubject([])
 
-  cus = new BehaviorSubject([])
+  cus:BehaviorSubject<any> = new BehaviorSubject([])
 
   logo = new BehaviorSubject([])
 
-  constructor(private http: HttpClient, private message: NzMessageService) {
+  constructor(private http: HttpClient, private message: NzMessageService, public translate: TranslateService) {
     this.fetchRecipes('menu', this.menu) as any;
-    this.fetchRecipes('new', this.new) as any;
+    // this.fetchRecipes('new', this.new) as any;
     this.fetchRecipes('ct', this.ct) as any;
-    this.fetchRecipes('intro', this.intro) as any;
-    this.fetchRecipes('type', this.type) as any;
-    this.fetchRecipes('project', this.project) as any;
-    this.fetchRecipes('team', this.team) as any;
-    this.fetchRecipes('cus', this.cus) as any;
+    // this.fetchRecipes('intro', this.intro) as any;
+    // this.fetchRecipes('type', this.type) as any;
+    // this.fetchRecipes('project', this.project) as any;
+    // this.fetchRecipes('team', this.team) as any;
+    // this.fetchRecipes('cus', this.cus) as any;
     this.fetchRecipes('logo', this.logo) as any;
 
     this.init();
+    this.fetchData('content').subscribe((data:any) => {
+      this.content = data;
+      this.pushContent();
+    })
+  }
+
+  pushContent() {
+    if(!this.content){
+      return
+    }
+    const current = this.translate.currentLang;
+    console.log(current, this.content)
+    let contentDetail:ContentDetail = (this.content as any)[current] 
+    this.new.next(contentDetail.new);
+    this.project.next(contentDetail.project)
+    this.type.next(contentDetail.type)
+    this.team.next(contentDetail.team)
+    this.cus.next(contentDetail.cus)
+    this.intro.next(contentDetail.intro)
   }
 
 

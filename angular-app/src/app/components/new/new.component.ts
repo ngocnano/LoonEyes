@@ -50,16 +50,19 @@ export class NewComponent {
     private translate:TranslateService, private title:Title
   ) {
     this.common.new.subscribe(item => {
+      console.log("change", item)
       this.news = [...item]
+      this.ngOnInit()
     })
-    this.paging.numPage = (this.news.length / this.paging.size);
-    this.changePageMain(0)
+
 
     translate.stream('title.content').subscribe(item => {
       title.setTitle(this.translate.instant('title.new') + item)
     })
   }
   ngOnInit(): void {
+    this.paging.numPage = (this.news.length / this.paging.size);
+    this.changePageMain(0)
     this.common.mediaBreakpoint$.subscribe((size) => {
       if ([SIZE_TYPE.XXL].includes(size)) {
         this.refresh(4);

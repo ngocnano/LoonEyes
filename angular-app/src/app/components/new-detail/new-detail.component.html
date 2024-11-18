@@ -26,7 +26,7 @@
 
 
 <div nz-row [nzGutter]="[50, 50]" class="container_main">
-    @for (item of project?.newDetail; track $index) {
+    @for (item of project?.newDetail; track item) {
         <div nz-col [nzLg]="item.nzLg" [nzMd]="item.nzLg" [nzSm]="item.nzSm" [nzXs]="item.nzXs">
             @if (item.detailType === 'img') {
                 <div class="pj_img">

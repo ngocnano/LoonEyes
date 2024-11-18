@@ -53,7 +53,7 @@ changeType(_t19: { id: null; name: string; }|{ id: number; name: string; }) {
 constructor(private projectService:ProjectService, private route:ActivatedRoute, 
   private router:Router, private common:CommonServiceService,
   private translate:TranslateService, private title:Title){
-  this.common.project.subscribe(data => {
+  this.common.project.subscribe((data:any) => {
     this.listProject = data;
     this.listProjectDateFilter = [...this.listProject];
     this.paging.numPage = (this.listProject.length / this.paging.size);

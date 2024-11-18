@@ -40,6 +40,7 @@ export class OurTeamComponent implements OnInit {
   constructor(private commonService: CommonServiceService) {
     this.commonService.team.subscribe(item => {
       this.ourTeam = [...item]
+      this.ngOnInit()
     })
   }
   currentPage: number = 0;

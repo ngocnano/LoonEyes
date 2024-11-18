@@ -39,6 +39,9 @@ export class AppComponent implements OnInit {
       const browserLang:any = this.translate.getBrowserLang();
       this.translate.use(browserLang.match(/en|cn|vi|jp/) ? browserLang : 'en');
       this.currentLangnge = this.translate.getLangs().find(item => item !== this.translate.currentLang)
+      this.translate.onLangChange.subscribe(data => {
+        setTimeout(() => {this.commonServiceService.pushContent(), 200})
+      })
   }
   ngOnInit(): void {
     this.commonServiceService.changeMenuVisible.subscribe(item => {

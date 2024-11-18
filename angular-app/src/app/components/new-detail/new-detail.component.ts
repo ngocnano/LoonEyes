@@ -46,7 +46,15 @@ export class NewDetailComponent {
   ) {
     this.common.new.subscribe(item => {
       this.news = [...item]
+      this.ngOnInit()
     })
+
+
+    translate.stream('title.content').subscribe(item => {
+      title.setTitle(this.translate.instant('title.new') + item)
+    })
+  }
+  ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     if (!id) {
       this.changeTo();
@@ -55,12 +63,6 @@ export class NewDetailComponent {
       this.project = this.news.find((item: any) => item.id === Number(id));
       console.log(this.project)
     }
-
-    translate.stream('title.content').subscribe(item => {
-      title.setTitle(this.translate.instant('title.new') + item)
-    })
-  }
-  ngOnInit(): void {
     this.common.mediaBreakpoint$.subscribe((size) => {
       if ([SIZE_TYPE.XXL].includes(size)) {
         this.refresh(4);

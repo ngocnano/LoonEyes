@@ -21,7 +21,7 @@ export class ProjectComponent {
 
   constructor(private router:Router, private projectService: CommonServiceService){
     
-    projectService.project.subscribe(data => {
+    projectService.project.subscribe((data:any) => {
       if(data.length > 0) {
         this.project = data.slice(0, 3);
       } else {
