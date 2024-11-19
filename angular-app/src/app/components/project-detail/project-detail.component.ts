@@ -13,6 +13,11 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { EditComponent } from '../../shared/edit/edit.component';
 
 @Component({
   selector: 'app-project-detail',
@@ -25,7 +30,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     NzCarouselModule,
     NzFlexModule,
     TranslateModule,
-    CommonModule
+    NzButtonModule,
+    NzIconModule,
+    NzModalModule,
+    NzSelectModule,
+    CommonModule,
+    EditComponent
   ],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
@@ -44,8 +54,10 @@ export class ProjectDetailComponent implements OnInit {
   nzSpan = 6;
   currentPage: number = 0;
   total: number = 0;
+  update = false;
 
   constructor(
+    private modal: NzModalService,
     private projectService: ProjectService,
     private router: Router,
     private common: CommonServiceService,
@@ -53,19 +65,26 @@ export class ProjectDetailComponent implements OnInit {
     protected _sanitizer: DomSanitizer,
     private translate:TranslateService, private title:Title
   ) {
-    this.common.project.subscribe((item:any) => {
-      this.projects = [...item]
-    })
-    const id = this.route.snapshot.params['id'];
-    if (!id) {
-      this.changeTo();
-    } else {
-      this.project = this.projects.find((item: any) => item.id === Number(id));
-    }
+    this.update = route.snapshot.data['update']
 
+    if(this.update){
+      console.log(localStorage.getItem('project'))
+      this.project = JSON.parse(localStorage.getItem('project') as any)
+    } else {
+      this.common.project.subscribe((item:any) => {
+        this.projects = [...item]
+      })
+      const id = this.route.snapshot.params['id'];
+      if (!id) {
+        this.changeTo();
+      } else {
+        this.project = this.projects.find((item: any) => item.id === Number(id));
+      }
+    }
     translate.stream('title.content').subscribe(item => {
       title.setTitle(this.translate.instant('title.project') + item)
     })
+
   }
   ngOnInit(): void {
     this.common.mediaBreakpoint$.subscribe((size) => {
@@ -140,5 +159,22 @@ export class ProjectDetailComponent implements OnInit {
       default:
         return this._sanitizer.bypassSecurityTrustHtml(value);
     }
+  }
+
+  edit(value:any, name:any): void {
+    const mo = this.modal.create({
+      nzBodyStyle: {'background': 'white'},
+      nzTitle: 'Chỉnh sửa nội dung',
+      nzData : {text : 'xxxxxxxxxxxxx'},
+      nzContent: EditComponent,
+      nzOnOk: () => {
+         value[name] = mo.componentInstance?.text
+      }
+    });
+
+    if(mo.componentInstance){
+      mo.componentInstance.text = value[name];
+    }
+
   }
 }

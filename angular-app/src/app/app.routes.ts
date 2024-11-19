@@ -13,6 +13,11 @@ export const routes: Routes = [
         loadComponent: () => import('./components/project/all-project/all-project.component').then(x => x.AllProjectComponent)
     },
     {
+        path: 'project-update',
+        data : {update : true},
+        loadComponent: () => import('./components/project/all-project/all-project.component').then(x => x.AllProjectComponent)
+    },
+    {
         path: 'intro',
         loadComponent: () => import('./components/intro/intro.component').then(x => x.IntroComponent)
     },
@@ -22,6 +27,11 @@ export const routes: Routes = [
     },
     {
         path: 'project-detail',
+        loadComponent: () => import('./components/project-detail/project-detail.component').then(x => x.ProjectDetailComponent)
+    },
+    {
+        path: 'project-detail-update',
+        data : {update : true},
         loadComponent: () => import('./components/project-detail/project-detail.component').then(x => x.ProjectDetailComponent)
     },
     {

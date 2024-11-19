@@ -13,12 +13,14 @@ import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-all-project',
   standalone: true,
   providers: [ProjectService],
-  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, CommonModule, 
+  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzFlexModule, NzTagModule, CommonModule, NzButtonModule, NzIconModule,
     StartComponent, NzAffixModule, TranslateModule],
   templateUrl: './all-project.component.html',
   styleUrl: './all-project.component.scss'
@@ -38,7 +40,7 @@ changeType(_t19: { id: null; name: string; }|{ id: number; name: string; }) {
   this.changePage(0)
 
 }
-
+  update = false;
   listProject:any = [];
   listType:any = [];
   listProjectTmp:any[] = [];
@@ -73,6 +75,8 @@ constructor(private projectService:ProjectService, private route:ActivatedRoute,
   translate.stream('title.content').subscribe(item => {
     title.setTitle(this.translate.instant('title.project') + item)
   })
+  this.update = route.snapshot.data['update']
+  console.log(route.snapshot.data['update'])
 
 }
   ngOnInit(): void {
@@ -116,8 +120,39 @@ constructor(private projectService:ProjectService, private route:ActivatedRoute,
     this.router.navigate(['/project', { id: id }]);
   }
 
-  changeToProjectDetail(id: any) {
+  changeToProjectDetail(id: any, item:any) {
+    if(this.update){
+      this.changeToUpdate(item)
+      return
+    }
     this.router.navigate(['/project-detail', { id: id }]);
+  }
+
+  changeToUpdate(data:any, event?:Event) {
+    event?.preventDefault()
+    console.log(data)
+    if(!data){
+      data =  {
+        "customer": "",
+        "des": "",
+        "google": "https://firebasestorage.googleapis.com/v0/b/app-drone-da32e.appspot.com/o/intro%2FDrone_INTRO.mp4?alt=media&token=9710d4e7-39fb-47ed-a349-abaefaa573c4IsOV3js",
+        "id": null,
+        "loc": "",
+        "name": "",
+        "no": "",
+        "projectDetails": [
+            {
+                "detailType": "text",
+                "nzLg": 12,
+                "nzMd": 12,
+                "nzSm": 24,
+                "nzXs": 24,
+                "url": "Giải thưởng Quảng cáo Sáng tạo Việt Nam - Vạn Xuân Awards là giải thưởng cấp quốc gia được trao tặng bởi Bộ Văn hóa, Thể thao và Du lịch, nhằm tôn vinh những người làm quảng cáo, vinh danh tác phẩm quảng cáo nổi bật, có sức ảnh hưởng đến cộng đồng, xã hội. "
+            }]
+          }
+    } 
+    localStorage.setItem('project', JSON.stringify(data));
+    this.router.navigateByUrl('/project-detail-update');
   }
 
 }
