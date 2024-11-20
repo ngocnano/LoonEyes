@@ -4,6 +4,7 @@ import { Content, ContentDetail, SIZE_TYPE } from './constan';
 import { HttpClient } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,10 @@ export class CommonServiceService implements OnDestroy {
 
   logo = new BehaviorSubject([])
 
-  constructor(private http: HttpClient, private message: NzMessageService, public translate: TranslateService) {
+  constructor(private http: HttpClient, 
+    private router:Router,
+    private message: NzMessageService, 
+    public translate: TranslateService) {
     this.fetchRecipes('menu', this.menu) as any;
     // this.fetchRecipes('new', this.new) as any;
     this.fetchRecipes('ct', this.ct) as any;
@@ -61,6 +65,11 @@ export class CommonServiceService implements OnDestroy {
       this.setProject(this.content.en.project, 'en')
       this.setProject(this.content.cn.project, 'cn')
       this.setProject(this.content.jp.project, 'jp')
+
+      this.setNew(vi.new, 'vi')
+      this.setNew(this.content.en.new, 'en')
+      this.setNew(this.content.cn.new, 'cn')
+      this.setNew(this.content.jp.new, 'jp')
       console.log('map', this.mapContent)
     })
   }
@@ -70,7 +79,20 @@ export class CommonServiceService implements OnDestroy {
       const key = lang +'#' + 'project#' + item.id
       this.mapContent.set(key, item)
       item.projectDetails?.forEach((child:any, index:number) => {
+        child.index = index;
         const keyChild = lang + '#' + 'project#' + item.id + '#' + index;
+        this.mapContent.set(keyChild, child)
+      })
+    })
+  }
+
+  setNew(project:any[], lang:string) {
+    project.forEach(item => {
+      const key = lang +'#' + 'new#' + item.id
+      this.mapContent.set(key, item)
+      item.newDetail?.forEach((child:any, index:number) => {
+        child.index = index;
+        const keyChild = lang + '#' + 'new#' + item.id + '#' + index;
         this.mapContent.set(keyChild, child)
       })
     })
@@ -92,7 +114,7 @@ export class CommonServiceService implements OnDestroy {
   }
 
 
-  storeRecipes(type:any, data:any) {
+  storeRecipes(type:any, data:any, url?:string) {
     this.http
       .put(
         'https://app-drone-da32e-default-rtdb.asia-southeast1.firebasedatabase.app/' + type + '.json',
@@ -100,8 +122,17 @@ export class CommonServiceService implements OnDestroy {
       )
       .subscribe(response => {
         this.message.success("Lưu thành công, load lại page để kiểm tra")
+        if(url){
+          this.router.navigateByUrl(url).then(item => {
+            window.location.reload()
+          })
+        }
         console.log(response);
       });
+  }
+
+  saveContent(url:string){
+    this.storeRecipes('content', this.content, url)
   }
 
   fetchRecipes(type:any, data:any) {

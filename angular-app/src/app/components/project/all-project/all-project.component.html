@@ -1,6 +1,7 @@
 <div>
     <nz-layout class="main">
-      @if (update) {<button (click)="changeToUpdate(null)" nz-button nzType="primary">Thêm mới</button>}
+      @if (update) {<button (click)="changeToUpdate(null)" nz-button nzType="primary">Thêm mới</button>
+    }
            <nz-layout class="main_project header">
                <nz-header nz-flex [nzJustify]="'space-between'">
                    <div class="title">{{"project.title" | translate }}</div>
@@ -13,9 +14,13 @@
              <nz-layout class="main_project header">
                <nz-content>
                 <div nz-row [nzGutter]="[60,60]" class="content">
-                    @for (item of listProjectTmp; track item) {
+                    @for (item of listProjectTmp; track item;) {
                         <div nz-col nzLg="12" class="all_project v" (click)="changeToProjectDetail(item.id, item)">
-                          @if (update) {<button (click)="changeToUpdate(item)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+                          @if (update) {
+                    
+                            <button (click)="changeToUpdate(item)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>
+                            <button (click)="deleteProject(item)" nz-button nzType="primary" nzDanger><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+                          }
                             <div class="w100 h100 zoom-img">
                                 <img [src]="item.url" class="img">
                                 <!-- <div class="img" [style.background-image]="'url(' + item.url + ')'"> -->

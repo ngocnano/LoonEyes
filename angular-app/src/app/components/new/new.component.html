@@ -14,7 +14,7 @@
   </div>
 
 </nz-affix> -->
-
+@if (update) {<button class="w100" (click)="changeToUpdate(null)" nz-button nzType="primary">Thêm mới</button>}
 <div class="header">
 
 
@@ -28,9 +28,15 @@
 
 
 <div class="main" nz-row [nzGutter]="[100,100]">
-    
+
     @for (item of new; track item) {
-        <div nz-col nzLg="12" nzSm="24" nzXs="24" class="container" (click)="changeToNewDetail(item.id)">
+
+        <div nz-col nzLg="12" nzSm="24" nzXs="24" class="container" (click)="changeToNewDetail(item.id, item)">
+          @if (update) {
+                    
+            <button (click)="changeToUpdate(item)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>
+            <button (click)="deleteProject(item)" nz-button nzType="primary" nzDanger><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+          }
             <div class="container__header">
                 <div class="container__header__title">{{item.title}}</div>
                 <div class="container__header__text">{{item.text}}</div>
@@ -40,7 +46,7 @@
             </div>
         </div>
 
-        <div nz-col nzLg="12" nzSm="24" nzXs="24" (click)="changeToNewDetail(item.id)">
+        <div nz-col nzLg="12" nzSm="24" nzXs="24" (click)="changeToNewDetail(item.id, item)">
             <img [src]="item.img" class="w100 h100 container__image">
         </div>
     }
@@ -78,9 +84,9 @@
               <div nz-row [nzGutter]="[32, 32]" > 
               @for (item of showItem[index]; track item) {
   
-                  <div nz-col [nzSpan]="nzSpan" class="card" (click)="changeToNewDetail(item.id)">
+                  <div nz-col [nzSpan]="nzSpan" class="card" (click)="changeToNewDetail(item.id, item)">
                     <div>
-                        <img [src]="item.img" class="img_inner" (click)="changeToNewDetail(item.id)">
+                        <img [src]="item.img" class="img_inner" (click)="changeToNewDetail(item.id, item)">
                     </div>
                     <div class="container_text__title_sub">{{item.title}}</div>
                   </div>

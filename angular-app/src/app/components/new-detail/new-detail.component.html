@@ -1,3 +1,8 @@
+@if (update){
+  
+  <button (click)="save()" nz-button nzType="primary">Lưu</button>
+}
+
 <div class="header">
     <!-- <nz-affix [nzOffsetTop]="10">
         <div class="aff_c w100">
@@ -17,6 +22,7 @@
       </nz-affix> -->
 
       <div class="w100 h100 title">
+        @if (update){<button (click)="edit(project,'title')" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
         <div class="text">{{project?.title}}</div>
       </div>
 
@@ -28,15 +34,32 @@
 <div nz-row [nzGutter]="[50, 50]" class="container_main">
     @for (item of project?.newDetail; track item) {
         <div nz-col [nzLg]="item.nzLg" [nzMd]="item.nzLg" [nzSm]="item.nzSm" [nzXs]="item.nzXs">
+          @if (update) {
+            <button (click)="deleteItem(item, project.id)" nz-button nzType="primary" nzDanger><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+           }
+
             @if (item.detailType === 'img') {
+              @if (update){<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
                 <div class="pj_img">
                     <img class="w100 h100" [src]="item.url">
                 </div>
-            } @else if (item.detailType === 'title') {
+            } 
+            @else if (item.detailType === 'video') {
+              @if (update){<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+              <div class="pj_img">
+                <video width="100%" height="100%" controls>
+                  <source [src]="item.url" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div>
+            }
+            @else if (item.detailType === 'title') {
+              @if (update){<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
                 <div class="container_text w100 h100 flex_title">
                     <div class="container_text__title_sub" [innerHTML]="item.url"></div>
                 </div>
             } @else {
+              @if (update){<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
                 <div class="container_text">
                     <div class="container_text__text" [innerHTML]="item.url"></div>
                 </div>
@@ -44,25 +67,12 @@
         </div>
     }
 
-    <!-- <div nz-col nzLg="24">
-        <nz-carousel [nzDotPosition]="dotPosition" (nzAfterChange)="changePage($event)" #cs class="content-card">
-          @for (index of array; track index) {
-            <div nz-carousel-content>
-              <div nz-row [nzGutter]="[32, 32]" > 
-              @for (item of showItem[index]; track item) {
-  
-                  <div nz-col [nzSpan]="nzSpan" class="card">
-                    <img [src]="item.url" class="w100 h100">
-                  </div>
-              }
-            </div>
-            </div>
-          }
-        </nz-carousel>
-  
-    </div> -->
+</div>
 
-
+<div nz-row >
+  <div nz-col nzLg="24">
+    <button class="w100" (click)="add()" nz-button nzType="primary">Thêm</button>
+  </div>
 </div>
 
 <div nz-row [nzGutter]="[32, 50]" class="main content-card title_text">

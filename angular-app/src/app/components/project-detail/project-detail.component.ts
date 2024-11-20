@@ -8,7 +8,7 @@ import { CommonServiceService } from '../../services/common-service.service';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { YtPlayerComponent } from '../../shared/yt-player/yt-player.component';
 import { NzCarouselComponent, NzCarouselModule } from 'ng-zorro-antd/carousel';
-import { SIZE_TYPE } from '../../services/constan';
+import { lang, SIZE_TYPE } from '../../services/constan';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -44,6 +44,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProjectDetailComponent implements OnInit {
 
+
   projects:any;
   project: any;
   array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -73,8 +74,12 @@ export class ProjectDetailComponent implements OnInit {
     if(this.update){
    
       this.project = this.common.temp as any
+      if(!this.project){
+        this.router.navigateByUrl('/project-update')
+      }
       this.common.type.subscribe(data => {
         this.type = data;})
+        this.translate.use('vi')
     } else {
       this.common.project.subscribe((item:any) => {
         this.projects = [...item]
@@ -91,6 +96,10 @@ export class ProjectDetailComponent implements OnInit {
     })
 
   }
+  save() {
+    this.common.saveContent('/project-update')
+   }
+
   ngOnInit(): void {
     this.common.mediaBreakpoint$.subscribe((size) => {
       if ([SIZE_TYPE.XXL].includes(size)) {
@@ -166,7 +175,7 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 
-  edit(value:any, name:any, type?:string): void {
+  edit(value:any, name:any, type?:string, child?:string): void {
     const mo = this.modal.create({
       nzBodyStyle: {'background': 'white'},
       nzTitle: 'Chỉnh sửa nội dung',
@@ -180,12 +189,69 @@ export class ProjectDetailComponent implements OnInit {
     if(mo.componentInstance){
       if(type) {
         mo.componentInstance.type = type;
+      }else {
+        mo.componentInstance.type = 'text'
+      }
+      if(child){
+        mo.componentInstance.keyChild = child + '#' + value.index;
       }
       mo.componentInstance.obj = value;
       mo.componentInstance.key = name;
-      mo.componentInstance.type = 'text'
+      if(value.detailType){
+      mo.componentInstance.keyType = 'detailType'
+      }
+
+
       mo.componentInstance.setValue();
     }
 
+  }
+
+  add() {
+    const obj =   {
+      index : this.project.projectDetails[this.project.projectDetails.length - 1].index + 1,
+      "detailType": "text",
+      "nzLg": 12,
+      "nzMd": 12,
+      "nzSm": 24,
+      "nzXs": 24,
+      "url": ""
+    }
+    
+    const key = '#project#'+this.project.id;
+    const vi = {...obj};
+    this.common.mapContent.set('vi' + key + '#' + obj.index, vi);
+    const cn = {...obj};
+    this.common.mapContent.set('cn' + key + '#' + obj.index, cn);
+    const en = {...obj};
+    this.common.mapContent.set('en' + key + '#' + obj.index, en);
+    const jp = {...obj};
+    this.common.mapContent.set('jp' + key + '#' + obj.index, jp);
+    this.common.mapContent.get('vi' + key).projectDetails.push(vi)
+    this.common.mapContent.get('cn' + key).projectDetails.push(cn)
+    this.common.mapContent.get('en' + key).projectDetails.push(en)
+    this.common.mapContent.get('jp' + key).projectDetails.push(jp)
+    console.log(this.common.content, 'content')
+    this.edit(vi, 'url', obj.detailType, this.project.id)
+  }
+
+  deleteItem(item:any, id:any){
+    this.modal.confirm({
+      nzTitle: '<i>Bạn có chắc chắn xóa ?</i>',
+      nzContent: '',
+      nzBodyStyle: { 'background': 'white' },
+      nzOnOk: () => {
+        lang.forEach((l:any) => {
+          const pj = (this.common.content as any)[l].project.find((itemP:any) => itemP.id === id);
+          pj.projectDetails = pj.projectDetails.filter((itemK:any) => itemK.index != item.index)
+        })
+        // this.common.content.vi.project = this.common.content.vi.project.find(item => item.id === id); // 2nd parameter means remove one item only
+        // this.common.content.cn.project = this.common.content.cn.project.find(item => item.id === id); // 2nd parameter means remove one item only
+        // this.common.content.jp.project = this.common.content.jp.project.find(item => item.id === id); // 2nd parameter means remove one item only
+        // this.common.content.en.project = this.common.content.en.project.find(item => item.id === id); // 2nd parameter means remove one item only
+        // this.common.saveContent('/project-update')
+
+      }
+    });
   }
 }

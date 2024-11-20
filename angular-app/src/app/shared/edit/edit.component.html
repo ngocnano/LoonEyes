@@ -1,12 +1,26 @@
-<div>Kích thước</div>
-<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Kích thước" [(ngModel)]="size">
-    <nz-option nzLabel="Full" [nzValue]="24"></nz-option>
+@if (size) {
+  <div>Kích thước</div>
+<nz-select nzShowSearch nzPlaceHolder="Kích thước" [(ngModel)]="size" (ngModelChange)="changeSize($event)">
+    <nz-option nzLabel="100" [nzValue]="24"></nz-option>
     <nz-option nzLabel="50" [nzValue]="12"></nz-option>
   </nz-select>
+}
 
-@if (type === 'text') {
+@if (keyType) {
+  <div>Loại</div>
+  <nz-select nzShowSearch nzPlaceHolder="Loại" [(ngModel)]="obj[keyType]" (ngModelChange)="changeTextType($event)">
+    @for (item of types; track $index) {
+      <nz-option nzLabel="{{item.key}}" [nzValue]="item.value"></nz-option>
+    }
+    </nz-select>
+}
+
+
+  
+
+@if (type === 'text' || type === 'title') {
   <div>Vi</div>
-  <textarea rows="4" nz-input [(ngModel)]="content.vi[key]" (ngModelChange)="changeText($event, content.vi)"></textarea>
+  <textarea rows="4" nz-input [(ngModel)]="content.vi[key]"></textarea>
 
   <div>En</div>
   <textarea rows="4" nz-input [(ngModel)]="content.en[key]"></textarea>
@@ -16,13 +30,15 @@
 
   <div>Jp</div>
   <textarea rows="4" nz-input [(ngModel)]="content.jp[key]"></textarea>
-}  
+}   @else {
+  <div class="container">
+    <app-image-control
+    [type]="type"
+      [croppedImageURL]="url"
+      path="/profile-images/my-image"
+      (imageReady)="imageReady($event)"
+    />
+  </div>
+}
 
-<div class="container">
-  <app-image-control
-    [width]="width()"
-    [height]="height()"
-    path="/profile-images/my-image"
-    (imageReady)="imageReady($event)"
-  />
-</div>
+

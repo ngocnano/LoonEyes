@@ -1,15 +1,19 @@
 @if (update){
+  
+  <button (click)="save()" nz-button nzType="primary">Lưu</button>
   <div class="container_text">Chọn loại</div>
   <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Loại dự án" [(ngModel)]="project.type">
     @for (item of type; track $index) {
-      <nz-option [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
+      @if (item.id) {
+        <nz-option [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
+      }
     }
-  
   </nz-select>
+
 }
 
 <div class="header">
-  @if (update) {<button nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+  @if (update) {<button (click)="edit(project,'url', 'img')" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
       <img class="w100 h100 img" [src]="project.url">
 </div>
 
@@ -53,25 +57,30 @@
 
 <div nz-row [nzGutter]="[50, 50]" class="main">
     <div nz-col nzSpan="24">
-      @if (update) {<button nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
         @if(project.videoId) {
           <app-yt-player [videoID]="project.videoId"></app-yt-player>
         } @else if(project.google) {
+          @if (update) {<button (click)="edit(project,'google', 'video')" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
           <iframe frameBorder="0" [src]="transform(project.google, 'resourceUrl')" width="100%" height="800" allow="autoplay"></iframe>
         }
         
     </div>
 
-    @for (item of project.projectDetails; track $index) {
+    @for (item of project.projectDetails; track item; let idx = $index) {
         <div nz-col [nzLg]="item.nzLg" [nzMd]="item.nzLg" [nzSm]="item.nzSm" [nzXs]="item.nzXs">
+           
+           @if (update) {
+            <button (click)="deleteItem(item, project.id)" nz-button nzType="primary" nzDanger><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+           }
+
             @if (item.detailType === 'img') {
-              @if (update) {<button nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+              @if (update) {<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
                 <div class="pj_img">
                     <img class="w100 h100" [src]="item.url">
                 </div>
 
-            }@else if (item.detailType === 'video') {
-              @if (update) {<button nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+            }@else if (item.detailType === 'video' && item.url) {
+              @if (update) {<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
               <div class="pj_img">
                 <video width="100%" height="100%" controls>
                   <source [src]="item.url" type="video/mp4">
@@ -85,7 +94,7 @@
                     <div class="container_text__title_sub padding" [innerHTML]="item.url"></div>
                 </div>
             } @else {
-              @if (update) {<button nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+              @if (update) {<button (click)="edit(item,'url', item.detailType, project.id)" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
                 <div class="container_text padding">
                     <div class="container_text__text_content" [innerHTML]="item.url"></div>
                 </div>
@@ -94,6 +103,13 @@
     }
 
 </div>
+<div nz-row >
+  <div nz-col nzLg="24">
+    <button class="w100" (click)="add()" nz-button nzType="primary">Thêm</button>
+  </div>
+</div>
+
+
 
 <div nz-row [nzGutter]="[32, 50]" class="main content-card title_text">
     <div nz-col nzLg="16">

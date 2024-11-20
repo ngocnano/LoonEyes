@@ -43,7 +43,17 @@ export const routes: Routes = [
         loadComponent: () => import('./components/new/new.component').then(x => x.NewComponent)
     },
     {
+        path: 'new-update',
+        data : {update : true},
+        loadComponent: () => import('./components/new/new.component').then(x => x.NewComponent)
+    },
+    {
         path: 'new-detail',
+        loadComponent: () => import('./components/new-detail/new-detail.component').then(x => x.NewDetailComponent)
+    },
+    {
+        path: 'new-detail-update',
+        data : {update : true},
         loadComponent: () => import('./components/new-detail/new-detail.component').then(x => x.NewDetailComponent)
     },
     {

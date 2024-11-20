@@ -6,6 +6,8 @@ export const SIZE_SCREEN = {
     XL : 1600
 }
 
+export const   lang = ['vi', 'en', 'cn', 'jp']
+
 export const SIZE_TYPE = {
     XS : 'xs',
     SM : 'sm',

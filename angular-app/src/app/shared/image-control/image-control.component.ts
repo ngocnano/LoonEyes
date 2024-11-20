@@ -20,6 +20,8 @@ import {
   uploadBytes,
 } from '@angular/fire/storage';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 @Component({
   selector: 'app-image-control',
@@ -29,22 +31,38 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatDialogModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    NzButtonModule,
+    NzSpinModule
   ],
   template: `
-    <div class="control-container" [style.width]="imageWidth() + 'px'">
+    <div class="control-container" [style.width]="'100%'">
       <div class="image-container">
-        <img
+        @if (uploading()) {
+          <nz-spin nzSimple></nz-spin>
+        }
+
+        @if (type==='img') {
+          <img
           [src]="imageSource()"
-          [width]="imageWidth()"
-          [height]="imageHeight()"
-          class="mat-elevation-z5"
+          class="mat-elevation-z5 w"
           [style.opacity]="uploading() ? 0.5 : 1"
         />
+
+        } @else {
+          @if(imageSource()){
+            <video width="100%" height="100%" controls           class="mat-elevation-z5 w"
+          [style.opacity]="uploading() ? 0.5 : 1">
+                  <source [src]="imageSource()" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+          }
+        }
         <mat-progress-spinner
           [diameter]="50"
           mode="indeterminate"
           *ngIf="uploading()"
         />
+
       </div>
 
       <input
@@ -54,13 +72,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         (change)="fileSelected($event)"
         (click)="inputField.value = ''"
       />
-      <button mat-raised-button (click)="inputField.click()">
-        Select Photo
+      <button nz-button nzType="primary" (click)="inputField.click()">
+        {{type==='img' ? 'Select Photo' : 'Select video'}}
       </button>
     </div>
   `,
   styles: [
-    `
+    `.w {
+      width: 100%;
+    }
       .control-container {
         display: flex;
         flex-direction: column;
@@ -88,12 +108,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class ImageControlComponent {
   imageWidth = signal(0);
-  @Input({ required: true }) set width(val: number) {
+  @Input({  }) set width(val: number) {
     this.imageWidth.set(val);
   }
 
   imageHeight = signal(0);
-  @Input({ required: true }) set height(val: number) {
+  @Input({  }) set height(val: number) {
     this.imageHeight.set(val);
   }
 
@@ -102,10 +122,13 @@ export class ImageControlComponent {
     this.imagePath.set(val);
   }
 
+  @Input() type = 'img'
+
   placeholder = computed(
     () => `https://placehold.co/${this.imageWidth()}X${this.imageHeight()}`
   );
 
+  @Input()
   croppedImageURL = signal<string | undefined>(undefined);
 
   imageSource = computed(() => {
