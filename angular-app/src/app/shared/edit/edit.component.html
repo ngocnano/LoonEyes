@@ -1,7 +1,28 @@
-
+<div>Kích thước</div>
 <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Kích thước" [(ngModel)]="size">
     <nz-option nzLabel="Full" [nzValue]="24"></nz-option>
     <nz-option nzLabel="50" [nzValue]="12"></nz-option>
   </nz-select>
 
-<textarea rows="4" nz-input [(ngModel)]="text"></textarea>
+@if (type === 'text') {
+  <div>Vi</div>
+  <textarea rows="4" nz-input [(ngModel)]="content.vi[key]" (ngModelChange)="changeText($event, content.vi)"></textarea>
+
+  <div>En</div>
+  <textarea rows="4" nz-input [(ngModel)]="content.en[key]"></textarea>
+
+  <div>Cn</div>
+  <textarea rows="4" nz-input [(ngModel)]="content.cn[key]"></textarea>
+
+  <div>Jp</div>
+  <textarea rows="4" nz-input [(ngModel)]="content.jp[key]"></textarea>
+}  
+
+<div class="container">
+  <app-image-control
+    [width]="width()"
+    [height]="height()"
+    path="/profile-images/my-image"
+    (imageReady)="imageReady($event)"
+  />
+</div>

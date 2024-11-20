@@ -18,7 +18,9 @@ export class CommonServiceService implements OnDestroy {
   public menuChange: BehaviorSubject<any> = new BehaviorSubject(null);
   public changeMenuVisible: Subject<any> = new Subject();
   public size = '';
-  public content!: Content
+  public content!: Content;
+  public mapContent = new Map<string, any>();
+  public temp:any;
 
   menu = new BehaviorSubject([]);
 
@@ -54,6 +56,23 @@ export class CommonServiceService implements OnDestroy {
     this.fetchData('content').subscribe((data:any) => {
       this.content = data;
       this.pushContent();
+      const vi = this.content.vi;
+      this.setProject(vi.project, 'vi')
+      this.setProject(this.content.en.project, 'en')
+      this.setProject(this.content.cn.project, 'cn')
+      this.setProject(this.content.jp.project, 'jp')
+      console.log('map', this.mapContent)
+    })
+  }
+
+  setProject(project:any[], lang:string) {
+    project.forEach(item => {
+      const key = lang +'#' + 'project#' + item.id
+      this.mapContent.set(key, item)
+      item.projectDetails?.forEach((child:any, index:number) => {
+        const keyChild = lang + '#' + 'project#' + item.id + '#' + index;
+        this.mapContent.set(keyChild, child)
+      })
     })
   }
 

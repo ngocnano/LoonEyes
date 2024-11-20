@@ -18,6 +18,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { EditComponent } from '../../shared/edit/edit.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-project-detail',
@@ -35,7 +36,8 @@ import { EditComponent } from '../../shared/edit/edit.component';
     NzModalModule,
     NzSelectModule,
     CommonModule,
-    EditComponent
+    EditComponent,
+    FormsModule
   ],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
@@ -55,6 +57,7 @@ export class ProjectDetailComponent implements OnInit {
   currentPage: number = 0;
   total: number = 0;
   update = false;
+  type:any
 
   constructor(
     private modal: NzModalService,
@@ -68,8 +71,10 @@ export class ProjectDetailComponent implements OnInit {
     this.update = route.snapshot.data['update']
 
     if(this.update){
-      console.log(localStorage.getItem('project'))
-      this.project = JSON.parse(localStorage.getItem('project') as any)
+   
+      this.project = this.common.temp as any
+      this.common.type.subscribe(data => {
+        this.type = data;})
     } else {
       this.common.project.subscribe((item:any) => {
         this.projects = [...item]
@@ -161,19 +166,25 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 
-  edit(value:any, name:any): void {
+  edit(value:any, name:any, type?:string): void {
     const mo = this.modal.create({
       nzBodyStyle: {'background': 'white'},
       nzTitle: 'Chỉnh sửa nội dung',
       nzData : {text : 'xxxxxxxxxxxxx'},
       nzContent: EditComponent,
       nzOnOk: () => {
-         value[name] = mo.componentInstance?.text
+
       }
     });
 
     if(mo.componentInstance){
-      mo.componentInstance.text = value[name];
+      if(type) {
+        mo.componentInstance.type = type;
+      }
+      mo.componentInstance.obj = value;
+      mo.componentInstance.key = name;
+      mo.componentInstance.type = 'text'
+      mo.componentInstance.setValue();
     }
 
   }

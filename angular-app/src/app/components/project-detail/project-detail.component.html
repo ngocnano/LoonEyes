@@ -1,9 +1,13 @@
+@if (update){
+  <div class="container_text">Chọn loại</div>
+  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Loại dự án" [(ngModel)]="project.type">
+    @for (item of type; track $index) {
+      <nz-option [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
+    }
+  
+  </nz-select>
+}
 
-<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person">
-  <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-  <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-  <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
-</nz-select>
 <div class="header">
   @if (update) {<button nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
       <img class="w100 h100 img" [src]="project.url">

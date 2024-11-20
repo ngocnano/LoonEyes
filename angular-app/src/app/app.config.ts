@@ -13,6 +13,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HammerGestureConfig, HammerModule } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
+import { provideFirebaseApp, initializeApp as fireInit } from '@angular/fire/app';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 registerLocaleData(vi);
 
@@ -31,6 +33,17 @@ export class MyHammerConfig extends HammerGestureConfig  {
   }
 }
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDilH5mVABmldMnh2f7OWOCePwaaQqh4v0",
+  authDomain: "app-drone-da32e.firebaseapp.com",
+  databaseURL: "https://app-drone-da32e-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "app-drone-da32e",
+  storageBucket: "app-drone-da32e.appspot.com",
+  messagingSenderId: "645652468399",
+  appId: "1:645652468399:web:85be89ca82ba4d2663ba5a",
+  measurementId: "G-V2W0P5VXBV"
+};
+
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes, withInMemoryScrolling({
     scrollPositionRestoration: "top",
@@ -45,5 +58,8 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     importProvidersFrom(HammerModule),
-    importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(), importProvidersFrom()]
+    importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(), importProvidersFrom(),
+      provideFirebaseApp(() => fireInit(firebaseConfig)),
+      provideStorage(() => getStorage())
+  ]
 };

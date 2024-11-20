@@ -151,7 +151,7 @@ constructor(private projectService:ProjectService, private route:ActivatedRoute,
             }]
           }
     } 
-    localStorage.setItem('project', JSON.stringify(data));
+    this.common.temp = data;
     this.router.navigateByUrl('/project-detail-update');
   }
 
