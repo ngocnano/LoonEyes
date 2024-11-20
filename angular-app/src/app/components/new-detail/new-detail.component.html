@@ -24,12 +24,27 @@
       <div class="w100 h100 title">
         @if (update){<button (click)="edit(project,'title')" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
         <div class="text">{{project?.title}}</div>
+
+
+
+ 
       </div>
 
 
 
 </div>
-
+<div nz-row>
+  <div nz-col nzSpan="24">
+    @if (update){<button (click)="edit(project,'text')" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+    <div class="text">{{project?.text}}</div>
+  </div>
+  <div nz-col nzSpan="24">
+    @if (update){<button (click)="edit(project,'img', 'img')" nz-button nzType="primary"><span nz-icon nzType="edit" nzTheme="outline"></span></button>}
+    <div class="pj_img">
+      <img class="w100 h100" [src]="project.img">
+  </div>
+  </div>
+</div>
 
 <div nz-row [nzGutter]="[50, 50]" class="container_main">
     @for (item of project?.newDetail; track item) {
