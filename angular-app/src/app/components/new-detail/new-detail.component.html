@@ -83,12 +83,14 @@
     }
 
 </div>
-
-<div nz-row >
-  <div nz-col nzLg="24">
-    <button class="w100" (click)="add()" nz-button nzType="primary">Thêm</button>
+@if (update){
+  <div nz-row >
+    <div nz-col nzLg="24">
+      <button class="w100" (click)="add()" nz-button nzType="primary">Thêm</button>
+    </div>
   </div>
-</div>
+}
+
 
 <div nz-row [nzGutter]="[32, 50]" class="main content-card title_text">
     <div nz-col nzLg="16">

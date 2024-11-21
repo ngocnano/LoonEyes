@@ -9,3 +9,10 @@
     display: flex;
     justify-content: space-around;
 }
+
+.flexx {
+    display: flex;
+    justify-items: center;
+    margin-bottom: 50px;
+    column-gap: 30px;
+}

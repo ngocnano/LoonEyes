@@ -7,7 +7,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
+import { NZ_MODAL_DATA, NzModalModule, NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { filter } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,15 +16,22 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-menu',
   standalone: true,
   imports: [NzLayoutModule, NzMenuModule, NzListModule, NzRadioModule, FormsModule, NzIconModule,
+    NzModalModule,
      TranslateModule, CommonModule ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent implements OnInit {
+
+  changeToAdm() {
+    this.router.navigateByUrl('/update').then(() => this.commonServiceService.close())
+  }
   radioValue:any
   curUrl =''
 
-  constructor(private  commonServiceService: CommonServiceService, private router:Router, private route: ActivatedRoute){
+  constructor(
+    private modal: NzModalService,
+    private  commonServiceService: CommonServiceService, private router:Router, private route: ActivatedRoute){
     commonServiceService.menu.subscribe(item => {
       this.menu = item;
     });

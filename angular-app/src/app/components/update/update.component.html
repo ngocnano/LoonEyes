@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <nz-textarea-count>
         <textarea [(ngModel)]="data" nz-input></textarea>
       </nz-textarea-count>
@@ -7,5 +7,22 @@
     <button nz-button nzType="primary" (click)="save()">Lưu</button>
     <button nz-button nzType="primary" (click)="home()">Home</button>
 </div>
-</div>
+</div> -->
+<div nz-row [nzGutter]="[30, 30]" nzJustify="center">
 
+    @if(!isLog){
+    <div nz-col nzSpan="24" nzOffset="8" class="flexx">
+        <div>
+            <div>Mật khẩu</div>
+            <input nz-input placeholder="Nhập" [(ngModel)]="input" type="number" />
+            <button nz-button nzType="primary" (click)="log()">Đăng nhập</button>
+        </div>
+
+    </div>
+    } @else {
+        <div nz-col nzSpan="24" nzOffset="8" class="flexx">
+            <button nz-button nzType="primary" (click)="change('/project-update')">Đăng dự án</button>
+            <button nz-button nzType="primary" nzDanger (click)="change('/new-update')">Đăng tin tức</button>
+        </div>
+    }
+</div>
